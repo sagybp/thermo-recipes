@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+# raw WhatsApp export: contains phone numbers and private messages, never publish
+source/
+# working files for the group poll
+poll/
+dedupe.html
+design-options.html
+# chat-derived working data (message excerpts); only the final recipe list is published
+data/*
+!data/recipes.json

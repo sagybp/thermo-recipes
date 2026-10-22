@@ -1,0 +1,35 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>איחוד כפילויות</title>
+<style>
+:root{--bg:#fbf6ec;--ink:#2a2118;--card:#fff;--line:#e4d8c3;--keep:#2f7d4f;--drop:#b6452c}
+@media(prefers-color-scheme:dark){:root{--bg:#1b1712;--ink:#f1e8d8;--card:#27211a;--line:#3d3328}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,sans-serif;padding:0 16px 90px}
+header{position:sticky;top:0;background:var(--bg);padding:12px 0;border-bottom:1px solid var(--line);z-index:5;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{font-size:18px;margin:0;flex:1}button{font:inherit;padding:8px 14px;border-radius:10px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer}
+button.ghost{background:none;color:var(--ink)}
+.g{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:14px 0;padding:10px}
+.g.done{opacity:.55}.row{display:flex;gap:10px;align-items:center;padding:8px;border-radius:10px;border:2px solid transparent;cursor:pointer}
+.row.keep{border-color:var(--keep)}.row.drop{border-color:var(--drop);opacity:.6}
+.row img{width:64px;height:64px;object-fit:cover;border-radius:8px;background:var(--line);flex:none}
+.t{flex:1;min-width:0;direction:ltr;text-align:left;font-weight:600}.m{font-size:13px;opacity:.7;direction:rtl}
+.tag{font-size:12px;border-radius:6px;padding:1px 6px;background:var(--line)}a{color:inherit}
+.bar{display:flex;gap:8px;margin-top:6px}.bar button{font-size:13px;padding:5px 10px}
+</style></head><body>
+<header><h1>איחוד כפילויות · <span id="c"></span></h1><button id="exp">ייצוא ההחלטות</button></header>
+<p>לחיצה על מתכון = לשמור אותו (מסגרת ירוקה). אפשר לשמור יותר מאחד אם הם באמת שונים. ההחלטות נשמרות אוטומטית בדפדפן.</p>
+<div id="app"></div>
+<script>
+const G=/*DATA*/[];let S={};try{S=JSON.parse(localStorage.getItem('dd')||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem('dd',JSON.stringify(S))}catch(e){}};
+// default: keep the first (drive / most shared) item of each group
+G.forEach((g,i)=>{if(!S[i])S[i]=[g[0].id]});
+function render(){const a=document.getElementById('app');a.innerHTML='';let n=0;
+G.forEach((g,i)=>{const d=document.createElement('div');d.className='g';
+g.forEach(r=>{const k=S[i].includes(r.id);const e=document.createElement('div');e.className='row '+(k?'keep':'drop');
+e.innerHTML=`<img loading="lazy" src="${r.image||''}" alt=""><div class="t">${r.title}</div><div class="m">${r.drive?'<span class="tag">בדרייב</span> ':''}שותף ${r.shares}× · ${r.pos} תגובות<br><a href="${r.url}" target="_blank" onclick="event.stopPropagation()">פתח</a></div>`;
+e.onclick=()=>{const s=S[i];S[i]=k?s.filter(x=>x!==r.id):[...s,r.id];save();render()};d.append(e)});a.append(d);n+=S[i].length});
+document.getElementById('c').textContent=`${G.length} קבוצות · יישארו ${n} מתוך ${G.reduce((t,g)=>t+g.length,0)}`}
+document.getElementById('exp').onclick=()=>{const drop=[];G.forEach((g,i)=>g.forEach(r=>{if(!S[i].includes(r.id))drop.push(r.id)}));
+const b=new Blob([JSON.stringify({remove:drop},null,1)],{type:'application/json'});const l=document.createElement('a');l.href=URL.createObjectURL(b);l.download='dedupe_decisions.json';l.click()};
+render();
+</script></body></html>

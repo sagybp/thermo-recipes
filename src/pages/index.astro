@@ -1,0 +1,98 @@
+---
+import '@fontsource/amatic-sc/hebrew-400.css';
+import '@fontsource/amatic-sc/hebrew-700.css';
+import '@fontsource/assistant/hebrew-400.css';
+import '../styles/notebook.css';
+import all from '../../data/recipes.json';
+import { norm } from '../lib/norm';
+
+const ORDER = ['עיקריות', 'מתוקים', 'מאפים ולחמים', 'מתכוני בסיס', 'תוספות', 'סלטים', 'מרקים', 'משקאות'];
+
+// Only what the page needs: no chat metadata, no sender info.
+const recipes = all
+  .map((r) => ({
+    name: r.name_he as string,
+    cat: r.category as string,
+    url: r.url as string,
+    note: (r.note || '') as string,
+    shares: (r.shares || 0) as number,
+    search: norm(`${r.name_he} ${r.title_en ?? ''} ${r.category}`),
+  }))
+  .sort((a, b) => b.shares - a.shares || a.name.localeCompare(b.name, 'he'));
+
+const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
+---
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>המתכונים שלנו · תרמומיקס</title>
+    <meta name="description" content="אוסף המתכונים שקבוצת תרמומיקס אהבה" />
+  </head>
+  <body>
+    <div class="tape"></div>
+    <main>
+      <h1>המתכונים שלנו</h1>
+      <p class="tagline">{recipes.length} מתכוני תרמומיקס שהקבוצה אהבה</p>
+
+      <label class="search">
+        <span hidden>חיפוש מתכון</span>
+        <input id="q" type="search" placeholder="חיפוש מתכון…" autocomplete="off" enterkeyhint="search" />
+      </label>
+
+      <div class="chips" role="group" aria-label="קטגוריות">
+        <button class="chip" data-cat="" aria-pressed="true">הכול</button>
+        {cats.map((c) => <button class="chip" data-cat={c} aria-pressed="false">{c}</button>)}
+      </div>
+
+      <p class="count" id="count" aria-live="polite"></p>
+      <ul id="list">
+        {recipes.map((r) => (
+          <li data-cat={r.cat} data-s={r.search}>
+            <a href={r.url} target="_blank" rel="noopener noreferrer">
+              <span class="name">{r.name}</span>
+              {r.shares >= 2 && <span class="meta">♥ {r.shares}</span>}
+            </a>
+            {r.note && <span class="note">{r.note}</span>}
+          </li>
+        ))}
+      </ul>
+      <p class="empty" id="empty" hidden>לא מצאנו… נסו מילה אחרת</p>
+
+      <span class="stamp">מומלץ!</span>
+      <footer>הקישורים נפתחים באתר Cookidoo (נדרש חיבור).</footer>
+    </main>
+
+    <script>
+      import { norm } from '../lib/norm';
+      const q = document.getElementById('q') as HTMLInputElement;
+      const items = [...document.querySelectorAll<HTMLLIElement>('#list li')];
+      const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
+      const count = document.getElementById('count')!;
+      const empty = document.getElementById('empty')!;
+      let cat = '';
+
+      function apply() {
+        const terms = norm(q.value).split(' ').filter(Boolean);
+        let n = 0;
+        for (const li of items) {
+          const ok = (!cat || li.dataset.cat === cat) && terms.every((t) => li.dataset.s!.includes(t));
+          li.hidden = !ok;
+          if (ok) n++;
+        }
+        count.textContent = n === items.length ? '' : `${n} מתכונים`;
+        empty.hidden = n > 0;
+      }
+      q.addEventListener('input', apply);
+      for (const c of chips) {
+        c.addEventListener('click', () => {
+          cat = c.dataset.cat || '';
+          chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
+          apply();
+        });
+      }
+      apply();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+/* Skin: "מחברת מטבח". Everything visual lives here, so the design can be swapped without touching data or logic. */
+:root {
+  --paper: #f6efdc;
+  --line: #9fc4d6aa;
+  --ink: #2b2b4a;
+  --red: #c8402f;
+  --yellow: #ffd75e;
+  --margin: #e0655d88;
+  --lh: 32px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1f1d2b;
+    --line: #3a4a6a88;
+    --ink: #ece6d6;
+    --red: #ff7a66;
+    --yellow: #b8902a;
+    --margin: #c4544c77;
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--paper); }
+body {
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: 'Amatic SC', 'Assistant', sans-serif;
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(transparent 0 calc(var(--lh) - 1px), var(--line) calc(var(--lh) - 1px) var(--lh));
+  background-position: 0 6px;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0 52px 0 auto;
+  width: 2px;
+  background: var(--margin);
+  pointer-events: none;
+}
+main { max-width: 640px; margin: 0 auto; padding: 22px 70px 80px 22px; }
+.tape {
+  position: absolute; top: -6px; right: 110px; width: 84px; height: 26px;
+  background: #f2d26099; transform: rotate(4deg);
+}
+h1 {
+  font-size: clamp(54px, 15vw, 84px); line-height: 0.95; font-weight: 700;
+  color: var(--red); transform: rotate(-2deg); margin: 18px 0 4px;
+}
+.tagline { font-size: 26px; line-height: var(--lh); margin-bottom: 14px; }
+
+.search { display: block; margin-bottom: 14px; }
+.search input {
+  width: 100%; font: 700 28px/var(--lh) 'Amatic SC', 'Assistant', sans-serif; color: var(--ink);
+  background: transparent; border: 0; border-bottom: 3px solid var(--ink); border-radius: 0; padding: 4px 2px;
+}
+.search input::placeholder { color: var(--ink); opacity: 0.5; }
+.search input:focus { outline: none; border-bottom-color: var(--red); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px 8px; margin-bottom: 18px; }
+.chip {
+  font: 700 24px/1.1 'Amatic SC', 'Assistant', sans-serif; color: var(--ink); background: transparent;
+  padding: 2px 14px 4px; border: 2px solid var(--ink); cursor: pointer;
+  border-radius: 50% 40% 55% 45% / 50% 60% 40% 55%; transform: rotate(-1.5deg);
+}
+.chip:nth-child(even) { transform: rotate(1.2deg); }
+.chip[aria-pressed='true'] { background: var(--yellow); color: #2b2b4a; }
+.chip:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+
+.count { font: 400 20px/var(--lh) 'Assistant', sans-serif; opacity: 0.65; }
+ul { list-style: none; }
+li { min-height: var(--lh); }
+li[hidden] { display: none; }
+li:nth-child(odd) { transform: rotate(0.4deg); }
+li a {
+  display: flex; align-items: baseline; gap: 10px; color: inherit; text-decoration: none;
+  font: 700 29px/var(--lh) 'Amatic SC', 'Assistant', sans-serif;
+}
+li a:hover .name, li a:focus-visible .name { color: var(--red); text-decoration: underline wavy; }
+li a:focus-visible { outline: 2px dashed var(--red); outline-offset: 2px; }
+.name { flex: 1; min-width: 0; }
+.meta { font: 400 15px/var(--lh) 'Assistant', sans-serif; opacity: 0.6; white-space: nowrap; }
+.note { display: block; font: 400 16px/var(--lh) 'Assistant', sans-serif; opacity: 0.7; padding-inline-start: 6px; }
+.empty { font: 700 30px/var(--lh) 'Amatic SC', sans-serif; padding: var(--lh) 0; color: var(--red); }
+.empty[hidden] { display: none; }
+
+.stamp {
+  display: inline-block; margin-top: 36px; font: 700 30px/1.1 'Amatic SC', sans-serif; color: var(--red);
+  border: 3px solid var(--red); border-radius: 6px; padding: 0 12px; transform: rotate(-6deg); opacity: 0.8;
+}
+footer { font: 400 15px/var(--lh) 'Assistant', sans-serif; opacity: 0.6; margin-top: 24px; }
