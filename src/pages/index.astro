@@ -48,7 +48,7 @@ const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
       </label>
 
       <div class="chips" role="group" aria-label="קטגוריות">
-        <button class="chip" data-cat="" aria-pressed="true">הכול</button>
+        <button class="chip" data-cat="" aria-pressed="true">הכל</button>
         {cats.map((c) => <button class="chip" data-cat={c} aria-pressed="false">{c}</button>)}
       </div>
 
