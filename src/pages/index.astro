@@ -41,11 +41,33 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <link rel="manifest" href={`${base}/manifest.webmanifest`} />
     <link rel="icon" href={`${base}/icon.svg`} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={`${base}/icon-192.png`} />
+    <script is:inline>
+      // returning visitors never see the welcome card, not even for a moment
+      try { if (localStorage.getItem('thermo_welcome_v1')) document.documentElement.classList.add('seen-welcome'); } catch (e) {}
+    </script>
   </head>
   <body data-base={base}>
     <main>
       <h1>המתכונים שלנו</h1>
-      <p class="tagline">{recipes.length} מתכוני תרמומיקס שהקבוצה אהבה</p>
+      <p class="tagline">
+        <span>{recipes.length} מתכונים שהקבוצה אהבה</span>
+        <button type="button" class="linkbtn" id="howto">איך זה עובד?</button>
+      </p>
+
+      <section class="welcome" id="welcome" aria-label="איך זה עובד">
+        <h2>איך זה עובד?</h2>
+        <p>לחיצה על שם מתכון פותחת אותו בקוקידו (נדרש חיבור).</p>
+        <p class="legend">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21z" /></svg> מועדף ·
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M8 12.2l3 3 5-6" /></svg> הכנתי ·
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12v7h14v-7M12 4v11M8 8l4-4 4 4" /></svg> שיתוף
+        </p>
+        <p id="install" hidden>אפשר להוסיף למסך הבית ולהשתמש כמו באפליקציה.</p>
+        <p class="ok">
+          <button type="button" class="chip" id="welcomeOk">הבנתי</button>
+          <button type="button" class="chip" id="installBtn" hidden>הוספה למסך הבית</button>
+        </p>
+      </section>
 
       <label class="search">
         <span hidden>חיפוש מתכון</span>
@@ -55,9 +77,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="chips" role="group" aria-label="קטגוריות">
         <button class="chip" data-cat="" aria-pressed="true">הכל</button>
         {cats.map((c) => <button class="chip" data-cat={c} aria-pressed="false">{c}</button>)}
+      </div>
+      <div class="chips mine" role="group" aria-label="הרשימות שלי">
         <button class="chip" data-cat="__fav" aria-pressed="false">המועדפים שלי <span class="n" data-n="fav"></span></button>
         <button class="chip" data-cat="__made" aria-pressed="false">הכנתי <span class="n" data-n="made"></span></button>
-        <button class="chip surprise" id="surprise" type="button">מה נבשל היום?</button>
       </div>
 
       <p class="count" id="count" aria-live="polite"></p>
@@ -189,18 +212,54 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         if (cat === '__fav' || cat === '__made') apply();
       });
 
-      // "What should we cook today?": a random recipe from what is currently shown, preferring ones not made yet.
-      document.getElementById('surprise')!.addEventListener('click', () => {
-        const shown = items.filter((li) => !li.hidden);
-        const fresh = shown.filter((li) => !isOn(marks, 'made', li.dataset.id!));
-        const pool = fresh.length ? fresh : shown;
-        if (!pool.length) return;
-        items.forEach((li) => li.classList.remove('pick'));
-        const li = pool[Math.floor(Math.random() * pool.length)];
-        li.classList.add('pick');
-        li.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        setTimeout(() => li.classList.remove('pick'), 4000);
+      // First-visit welcome card: shown once, can be reopened with "איך זה עובד?".
+      const html = document.documentElement;
+      const welcome = document.getElementById('welcome')!;
+      const WELCOME_KEY = 'thermo_welcome_v1';
+      document.getElementById('welcomeOk')!.addEventListener('click', () => {
+        html.classList.add('seen-welcome');
+        try { localStorage.setItem(WELCOME_KEY, '1'); } catch { /* storage blocked */ }
       });
+      document.getElementById('howto')!.addEventListener('click', () => {
+        html.classList.remove('seen-welcome');
+        welcome.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+
+      // "Add to home screen" tip: only where it can actually work.
+      const install = document.getElementById('install')!;
+      const installBtn = document.getElementById('installBtn') as HTMLButtonElement;
+      const standalone = matchMedia('(display-mode: standalone)').matches || (navigator as unknown as { standalone?: boolean }).standalone === true;
+      let deferredPrompt: (Event & { prompt: () => Promise<void> }) | null = null;
+      if (!standalone) {
+        if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+          install.textContent = 'באייפון: ב-Safari לחצו על שיתוף ואז "הוספה למסך הבית".';
+          install.hidden = false;
+        }
+        // Android where the browser never offers the install button (http, Firefox, Samsung Internet...):
+        // fall back to a plain hint about the browser menu.
+        if (/android/i.test(navigator.userAgent)) {
+          setTimeout(() => {
+            if (install.hidden) {
+              install.textContent = 'בתפריט הדפדפן (שלוש נקודות) בחרו "הוספה למסך הבית".';
+              install.hidden = false;
+            }
+          }, 2500);
+        }
+        window.addEventListener('beforeinstallprompt', (e) => {
+          e.preventDefault();
+          deferredPrompt = e as typeof deferredPrompt;
+          install.textContent = 'אפשר להוסיף למסך הבית ולהשתמש כמו באפליקציה.';
+          install.hidden = false;
+          installBtn.hidden = false;
+        });
+        installBtn.addEventListener('click', async () => {
+          if (!deferredPrompt) return;
+          await deferredPrompt.prompt();
+          deferredPrompt = null;
+          install.hidden = true;
+          installBtn.hidden = true;
+        });
+      }
 
       syncMarkUi();
       apply();
