@@ -112,4 +112,33 @@ li a:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; border
 .empty { font: 600 18px/var(--lh) 'Assistant', sans-serif; color: var(--red); margin-top: var(--lh); }
 .empty[hidden] { display: none; }
 
+/* personal actions: favorite, made it, share. They sit at the far (left) end of each row. */
+li a { padding-inline-end: 100px; }
+.acts { position: absolute; inset-block-start: 0; inset-inline-end: 0; height: var(--lh); display: flex; align-items: center; gap: 0; z-index: 1; }
+.act {
+  width: 32px; height: var(--lh); display: grid; place-items: center; padding: 0;
+  background: none; border: 0; cursor: pointer; color: var(--muted);
+}
+.act svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; position: relative; top: -3px; }
+.act:focus-visible { outline: 2px solid var(--red); outline-offset: -4px; border-radius: 6px; }
+.act[data-k='fav'][aria-pressed='true'] { color: var(--red); }
+.act[data-k='fav'][aria-pressed='true'] svg { fill: currentColor; }
+.act[data-k='made'][aria-pressed='true'] { color: #2f7d4f; }
+.act[data-k='made'][aria-pressed='true'] circle { fill: currentColor; }
+.act[data-k='made'][aria-pressed='true'] path { stroke: var(--paper); }
+
+.chip.surprise { background: #f2cf4f; border-color: var(--ink); }
+.chip .n { font-weight: 500; opacity: 0.8; }
+.chip[aria-pressed='true'] .n { opacity: 1; }
+
+/* the picked recipe is highlighted like a marker stroke */
+li.pick .name { background: #f2cf4f; box-shadow: 0 0 0 5px #f2cf4f; border-radius: 3px; transition: background 0.3s; }
+
+.toast {
+  position: fixed; inset-block-end: 22px; inset-inline: 0; margin-inline: auto; width: fit-content; max-width: 90vw;
+  background: var(--ink); color: var(--paper); padding: 9px 18px; border-radius: 999px; font: 600 15px/1.2 'Assistant', sans-serif;
+  opacity: 0; transform: translateY(8px); transition: opacity 0.2s, transform 0.2s; pointer-events: none; z-index: 5;
+}
+.toast.on { opacity: 1; transform: none; }
+
 footer { font-size: 14px; line-height: var(--lh); color: var(--muted); margin-top: var(--lh); }

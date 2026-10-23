@@ -18,16 +18,17 @@ const sortKey = (s: string) => {
 // Only what the page needs: no chat metadata, no sender info.
 const recipes = all
   .map((r) => ({
+    id: r.id as string,
     name: r.name_he as string,
     cat: r.category as string,
     url: r.url as string,
     note: (r.note || '') as string,
-    shares: (r.shares || 0) as number,
     search: norm(`${r.name_he} ${r.title_en ?? ''} ${r.category}`),
   }))
   .sort((a, b) => sortKey(a.name).localeCompare(sortKey(b.name), 'he'));
 
 const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <!doctype html>
 <html lang="he" dir="rtl">
@@ -36,8 +37,12 @@ const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>המתכונים שלנו · תרמומיקס</title>
     <meta name="description" content="אוסף המתכונים שקבוצת תרמומיקס אהבה" />
+    <meta name="theme-color" content="#f6ecc8" />
+    <link rel="manifest" href={`${base}/manifest.webmanifest`} />
+    <link rel="icon" href={`${base}/icon.svg`} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={`${base}/icon-192.png`} />
   </head>
-  <body>
+  <body data-base={base}>
     <main>
       <h1>המתכונים שלנו</h1>
       <p class="tagline">{recipes.length} מתכוני תרמומיקס שהקבוצה אהבה</p>
@@ -50,43 +55,89 @@ const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
       <div class="chips" role="group" aria-label="קטגוריות">
         <button class="chip" data-cat="" aria-pressed="true">הכל</button>
         {cats.map((c) => <button class="chip" data-cat={c} aria-pressed="false">{c}</button>)}
+        <button class="chip" data-cat="__fav" aria-pressed="false">המועדפים שלי <span class="n" data-n="fav"></span></button>
+        <button class="chip" data-cat="__made" aria-pressed="false">הכנתי <span class="n" data-n="made"></span></button>
+        <button class="chip surprise" id="surprise" type="button">מה נבשל היום?</button>
       </div>
 
       <p class="count" id="count" aria-live="polite"></p>
       <ul id="list">
         {recipes.map((r) => (
-          <li data-cat={r.cat} data-s={r.search}>
+          <li data-id={r.id} data-cat={r.cat} data-s={r.search} data-name={r.name} data-url={r.url}>
             <a href={r.url} target="_blank" rel="noopener noreferrer">
               <span class="name">{r.name}</span>
             </a>
+            <span class="acts">
+              <button type="button" class="act" data-k="fav" aria-pressed="false" aria-label="שמירה במועדפים" title="מועדף">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21z" /></svg>
+              </button>
+              <button type="button" class="act" data-k="made" aria-pressed="false" aria-label="סימון שהכנתי" title="הכנתי">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M8 12.2l3 3 5-6" /></svg>
+              </button>
+              <button type="button" class="act" data-k="share" aria-label="שיתוף" title="שיתוף">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12v7h14v-7M12 4v11M8 8l4-4 4 4" /></svg>
+              </button>
+            </span>
             {r.note && <span class="note">{r.note}</span>}
           </li>
         ))}
       </ul>
       <p class="empty" id="empty" hidden>לא מצאנו… נסו מילה אחרת</p>
-
     </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script>
       import { norm } from '../lib/norm';
+      import { loadMarks, saveMarks, isOn, setMark, count as countMarks } from '../lib/marks';
+      import type { Kind } from '../lib/marks';
+
       const q = document.getElementById('q') as HTMLInputElement;
       const items = [...document.querySelectorAll<HTMLLIElement>('#list li')];
-      const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
-      const count = document.getElementById('count')!;
+      const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip[data-cat]')];
+      const countEl = document.getElementById('count')!;
       const empty = document.getElementById('empty')!;
+      const toast = document.getElementById('toast')!;
+      const marks = loadMarks();
       let cat = '';
+
+      function showToast(msg: string) {
+        toast.textContent = msg;
+        toast.classList.add('on');
+        setTimeout(() => toast.classList.remove('on'), 1800);
+      }
+
+      function syncMarkUi() {
+        for (const li of items) {
+          for (const k of ['fav', 'made'] as Kind[]) {
+            li.querySelector(`.act[data-k="${k}"]`)!.setAttribute('aria-pressed', String(isOn(marks, k, li.dataset.id!)));
+          }
+        }
+        for (const k of ['fav', 'made'] as Kind[]) {
+          const n = countMarks(marks, k);
+          document.querySelector(`.n[data-n="${k}"]`)!.textContent = n ? `(${n})` : '';
+        }
+      }
 
       function apply() {
         const terms = norm(q.value).split(' ').filter(Boolean);
         let n = 0;
         for (const li of items) {
-          const ok = (!cat || li.dataset.cat === cat) && terms.every((t) => li.dataset.s!.includes(t));
+          let inView = true;
+          if (cat === '__fav') inView = isOn(marks, 'fav', li.dataset.id!);
+          else if (cat === '__made') inView = isOn(marks, 'made', li.dataset.id!);
+          else if (cat) inView = li.dataset.cat === cat;
+          const ok = inView && terms.every((t) => li.dataset.s!.includes(t));
           li.hidden = !ok;
           if (ok) n++;
         }
-        count.textContent = n === items.length ? '' : `${n} מתכונים`;
+        countEl.textContent = n === items.length ? '' : `${n} מתכונים`;
         empty.hidden = n > 0;
+        empty.textContent =
+          cat === '__fav' && !terms.length ? 'עוד לא סימנתם מועדפים. לחצו על הלב ליד מתכון.'
+          : cat === '__made' && !terms.length ? 'עוד לא סימנתם מה הכנתם. לחצו על הוי ליד מתכון.'
+          : 'לא מצאנו… נסו מילה אחרת';
       }
+
       q.addEventListener('input', apply);
       for (const c of chips) {
         c.addEventListener('click', () => {
@@ -95,7 +146,68 @@ const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
           apply();
         });
       }
+
+      document.getElementById('list')!.addEventListener('click', async (e) => {
+        const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.act');
+        if (!btn) return;
+        const li = btn.closest('li') as HTMLLIElement;
+        const k = btn.dataset.k!;
+        if (k === 'share') {
+          const name = li.dataset.name!;
+          const url = li.dataset.url!;
+          // 1) the phone's share sheet (touch devices on HTTPS; on desktop copying is nicer than the system dialog),
+          // 2) clipboard API, 3) old copy command, 4) tell the user.
+          try {
+            if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+              await navigator.share({ title: name, text: name, url });
+              return;
+            }
+          } catch (err) {
+            if ((err as Error).name === 'AbortError') return; // the person closed the share sheet
+          }
+          const text = `${name}\n${url}`;
+          let copied = false;
+          try {
+            await navigator.clipboard.writeText(text);
+            copied = true;
+          } catch {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.cssText = 'position:fixed;opacity:0;inset-block-start:0';
+            document.body.append(ta);
+            ta.select();
+            try { copied = document.execCommand('copy'); } catch { /* ignore */ }
+            ta.remove();
+          }
+          showToast(copied ? 'הקישור הועתק' : 'השיתוף לא זמין בדפדפן הזה');
+          return;
+        }
+        const kind = k as Kind;
+        setMark(marks, kind, li.dataset.id!, !isOn(marks, kind, li.dataset.id!));
+        saveMarks(marks);
+        syncMarkUi();
+        if (cat === '__fav' || cat === '__made') apply();
+      });
+
+      // "What should we cook today?": a random recipe from what is currently shown, preferring ones not made yet.
+      document.getElementById('surprise')!.addEventListener('click', () => {
+        const shown = items.filter((li) => !li.hidden);
+        const fresh = shown.filter((li) => !isOn(marks, 'made', li.dataset.id!));
+        const pool = fresh.length ? fresh : shown;
+        if (!pool.length) return;
+        items.forEach((li) => li.classList.remove('pick'));
+        const li = pool[Math.floor(Math.random() * pool.length)];
+        li.classList.add('pick');
+        li.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        setTimeout(() => li.classList.remove('pick'), 4000);
+      });
+
+      syncMarkUi();
       apply();
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register(`${document.body.dataset.base}/sw.js`).catch(() => {});
+      }
     </script>
   </body>
 </html>
