@@ -1,7 +1,7 @@
 [
  {
   "id": "r412661",
-  "name_he": "פירה חלומי",
+  "name_he": "פירה מושלם",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r412661",
@@ -14,7 +14,7 @@
  },
  {
   "id": "r496942",
-  "name_he": "ברוקולי",
+  "name_he": "ברוקולי וגזר מוקפצים",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r496942",
@@ -29,7 +29,7 @@
   "id": "r491215",
   "name_he": "מאפה עלים עם בצל מקורמל וגבינת עיזים",
   "category": "תוספות",
-  "note": "לבצל המקורמל מומלץ להוסיף זמן מעבר למה שמצויין במתכון, עד שהצבע מאוד כהה",
+  "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r491215",
   "title_en": "Caramelised Onion and Goat's Cheese Tarts",
   "in_drive": true,
@@ -66,7 +66,7 @@
  },
  {
   "id": "r315707",
-  "name_he": "ריזוטו בטטה גורגונזולה ופקאן",
+  "name_he": "ריזוטו בטטה, גורגונזולה ופקאן",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.co.uk/recipes/recipe/en-GB/r315707",
@@ -105,7 +105,7 @@
  },
  {
   "id": "r752019",
-  "name_he": "גרטן תפוחי אדמה",
+  "name_he": "גראטן תפוחי אדמה ושורש סלרי",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.co.uk/recipes/recipe/en-GB/r752019",
@@ -130,19 +130,6 @@
   "image": null
  },
  {
-  "id": "x10",
-  "name_he": "קוסקוס שמבשלים בסיר וטוחנים בתרמומיקס",
-  "category": "תוספות",
-  "note": "ממליצה להשתמש בסיר נון סטיק",
-  "url": "https://www.mako.co.il/food-cooking_magazine/SOS/Article-d4a72db08f4cb41006.htm",
-  "title_en": null,
-  "in_drive": true,
-  "in_chat": false,
-  "shares": 0,
-  "pos": 0,
-  "image": null
- },
- {
   "id": "r131506",
   "name_he": "ירקות מבושלים",
   "category": "תוספות",
@@ -159,7 +146,7 @@
   "id": "r82947",
   "name_he": "לביבות קישוא וגבינה",
   "category": "תוספות",
-  "note": "מעולה לילדים",
+  "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r82947",
   "title_en": "Mediterranean Courgette Fritters and Salsa",
   "in_drive": true,
@@ -170,7 +157,7 @@
  },
  {
   "id": "r441140",
-  "name_he": "נודלס חמאת בוטנים",
+  "name_he": "נודלס עוף וחמאת בוטנים",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.co.uk/recipes/recipe/en-GB/r441140",
@@ -185,7 +172,7 @@
   "id": "r751746",
   "name_he": "כדורי גבינה ברזילאים",
   "category": "מאפים ולחמים",
-  "note": "אפשר להחליף את הקמח טפיוקה בקמח פשוט למי שלא רגיש לגלוטן",
+  "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r751746",
   "title_en": "Brazilian Cheese Puffs",
   "in_drive": true,
@@ -198,7 +185,7 @@
   "id": "r91173",
   "name_he": "בצק לפאי",
   "category": "מאפים ולחמים",
-  "note": "ניתן להחליף כ20 - 30 אחוז מהקמח לקמח שקדים ובמקרה כזה להפחית מעט מהמים",
+  "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r91173",
   "title_en": "Pie Crust",
   "in_drive": true,
@@ -260,34 +247,8 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/916A600B-EBB6-411E-953A-7D2F7C24DB61/Derivates/35C7169D-75C3-4A26-A0FA-B3CAD182E6B3.jpg"
  },
  {
-  "id": "x20",
-  "name_he": "לחמניות שום מוצרלה",
-  "category": "מאפים ולחמים",
-  "note": "המתכון לא מוגדר לתרמומיקס אך ניתן ללוש בו את הבצק",
-  "url": "https://www.cookie-fairy.com/2018/07/%D7%9C%D7%97%D7%9E%D7%A0%D7%99%D7%95%D7%AA-%D7%A9%D7%95%D7%9D-%D7%91%D7%9E%D7%99%D7%9C%D7%95%D7%99-%D7%9E%D7%95%D7%A6%D7%A8%D7%9C%D7%94/",
-  "title_en": null,
-  "in_drive": true,
-  "in_chat": false,
-  "shares": 0,
-  "pos": 0,
-  "image": null
- },
- {
-  "id": "x21",
-  "name_he": "מאפה כוכב שמרים וקממבר",
-  "category": "מאפים ולחמים",
-  "note": "המתכון לא מוגדר לתרמומיקס אך ניתן ללוש בו את הבצק",
-  "url": "https://www.metukimsheli.com/2015/05/7632/",
-  "title_en": null,
-  "in_drive": true,
-  "in_chat": false,
-  "shares": 0,
-  "pos": 0,
-  "image": null
- },
- {
   "id": "r84495",
-  "name_he": "קיש בצל",
+  "name_he": "קיש בצל וגבינה",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r84495",
@@ -313,7 +274,7 @@
  },
  {
   "id": "r300140",
-  "name_he": "Thai Peanut Chicken with Coconut Rice",
+  "name_he": "עוף בוטנים תאילנדי עם אורז קוקוס",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r300140",
@@ -323,19 +284,6 @@
   "shares": 0,
   "pos": 0,
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/B964780C-186A-469B-A20B-E8EFDD20F0D1/Derivates/68F9C13B-2E2D-4D7B-B8AF-23DC94226063.jpg"
- },
- {
-  "id": "r68840",
-  "name_he": "בולונז",
-  "category": "עיקריות",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r68840",
-  "title_en": "Bolognese sauce",
-  "in_drive": true,
-  "in_chat": true,
-  "shares": 2,
-  "pos": 0,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/d45489f32bb0a626ac67cd44ca2e77f5/Derivates/c44e4a7e6a5574d16885c165d4df165ae1c6be87.jpg"
  },
  {
   "id": "r698314",
@@ -352,7 +300,7 @@
  },
  {
   "id": "r250205",
-  "name_he": "ריזוטו עם עוף משמשים",
+  "name_he": "ריזוטו עוף ומשמשים",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r250205",
@@ -378,7 +326,7 @@
  },
  {
   "id": "r211756",
-  "name_he": "עוף בקארי עם אורז",
+  "name_he": "עוף \"קאצו\" בקארי עם אורז",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r211756",
@@ -391,7 +339,7 @@
  },
  {
   "id": "r146573",
-  "name_he": "פסטה עם עוף פסטו ותרד",
+  "name_he": "פסטה עם עוף בפסטו תרד ושקדים",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r146573",
@@ -432,7 +380,7 @@
   "id": "r151936",
   "name_he": "בראוניז",
   "category": "מתוקים",
-  "note": "ממליצה לחתוך לקוביות ולהקפיא מה שלא אוכלים באותו היום, כשמוציאים מהמקפיא , 40 שניות במיקרו",
+  "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r151936",
   "title_en": "Brownies",
   "in_drive": true,
@@ -455,21 +403,8 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/2d3f3dfb-ab6d-4cdb-b1c2-ed7a53ea4ef2/Derivates/c973f182cef85da89ab391bdd1cc47a038bca28f.jpg"
  },
  {
-  "id": "x35",
-  "name_he": "גלידת קרמל מלוח של רחל",
-  "category": "מתוקים",
-  "note": "",
-  "url": "https://www.facebook.com/share/p/UwgzoT6XcUxyB5cC/?mibextid=xfxF2i",
-  "title_en": null,
-  "in_drive": true,
-  "in_chat": false,
-  "shares": 0,
-  "pos": 0,
-  "image": null
- },
- {
   "id": "r659877",
-  "name_he": "Edna's lemon curd tea cakes",
+  "name_he": "עוגיות קרם לימון",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r659877",
@@ -482,7 +417,7 @@
  },
  {
   "id": "r130424",
-  "name_he": "Pear Frangipane",
+  "name_he": "עוגת אגסים",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r130424",
@@ -495,7 +430,7 @@
  },
  {
   "id": "r657060",
-  "name_he": "עוגה באסקית",
+  "name_he": "עוגת גבינה באסקית",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r657060",
@@ -560,7 +495,7 @@
  },
  {
   "id": "r105589",
-  "name_he": "דייסת סולת/ Semonila Custard",
+  "name_he": "דייסת סולת",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r105589",
@@ -573,7 +508,7 @@
  },
  {
   "id": "r62598",
-  "name_he": "סלט עם ברוקולי גמבה וצנוברים",
+  "name_he": "סלט עם ברוקולי, פלפל וצנוברים",
   "category": "סלטים",
   "note": "",
   "url": "https://cookidoo.co.uk/recipes/recipe/en-GB/r62598",
@@ -583,19 +518,6 @@
   "shares": 6,
   "pos": 5,
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/5B46C09F-3B65-4880-A250-8B31EBC6373C/Derivates/AD5CF932-5BFE-4029-A06C-936F9380D778.jpg"
- },
- {
-  "id": "r66853",
-  "name_he": "קולסלאו",
-  "category": "סלטים",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r66853",
-  "title_en": "Coleslaw",
-  "in_drive": true,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 1,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/C081319C-BE7B-4E31-8C5E-FE05EFC679BD/Derivates/1B6303E4-069B-4D1A-A061-946649353040.jpg"
  },
  {
   "id": "r68838",
@@ -653,7 +575,7 @@
   "id": "r111962",
   "name_he": "סלט קוקוס וגזר מעלף",
   "category": "סלטים",
-  "note": "דקה עבודה",
+  "note": "",
   "url": "https://cookidoo.international/recipes/recipe/el/r111962",
   "title_en": "Carrot and Coconut Salad",
   "in_drive": true,
@@ -677,8 +599,8 @@
  },
  {
   "id": "r39174",
-  "name_he": "רוטב עגבניות (ממליצה להוסיף כפית מהמחית ציר ירקות))",
-  "category": "מתכוני בסיס",
+  "name_he": "רוטב עגבניות",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r39174",
   "title_en": "Tomato sauce",
@@ -691,7 +613,7 @@
  {
   "id": "r91221",
   "name_he": "רוטב בשמל",
-  "category": "מתכוני בסיס",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r91221",
   "title_en": "Béchamel Sauce",
@@ -704,7 +626,7 @@
  {
   "id": "r650471",
   "name_he": "מיונז מבושל",
-  "category": "מתכוני בסיס",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r650471",
   "title_en": "Cooked mayonnaise",
@@ -717,7 +639,7 @@
  {
   "id": "r435552",
   "name_he": "הולנדז",
-  "category": "מתכוני בסיס",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r435552",
   "title_en": "Hollandaise sauce",
@@ -742,20 +664,7 @@
  },
  {
   "id": "r178869",
-  "name_he": "אורז",
-  "category": "מתכוני בסיס",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r178869",
-  "title_en": "Steamed Rice",
-  "in_drive": true,
-  "in_chat": true,
-  "shares": 4,
-  "pos": 2,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/9e60f2e563258fa400b4e2790f02f8ff/Derivates/9b315648666e6b45cf66bac3b5437f9a25ef883b.jpg"
- },
- {
-  "id": "r178869",
-  "name_he": "מאודה",
+  "name_he": "אורז מאודה",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r178869",
@@ -768,7 +677,7 @@
  },
  {
   "id": "r151890",
-  "name_he": "מרק כרישה",
+  "name_he": "מרק כרישה ותפוחי אדמה",
   "category": "מרקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r151890",
@@ -783,7 +692,7 @@
   "id": "r68502",
   "name_he": "מרק דלעת",
   "category": "מרקים",
-  "note": "אני מוסיפה איזה ירקות שיש לי",
+  "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r68502",
   "title_en": "Pumpkin soup",
   "in_drive": true,
@@ -820,7 +729,7 @@
  },
  {
   "id": "r132065",
-  "name_he": "משחת שום",
+  "name_he": "ממרח שום",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r132065",
@@ -833,7 +742,7 @@
  },
  {
   "id": "r132066",
-  "name_he": "משחת ג'ינג'ר",
+  "name_he": "ממרח ג'ינג'ר",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r132066",
@@ -846,7 +755,7 @@
  },
  {
   "id": "r609212",
-  "name_he": "משחת שום וג'ינג'ר",
+  "name_he": "ממרח שום וג'ינג'ר",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r609212",
@@ -872,7 +781,7 @@
  },
  {
   "id": "r39598",
-  "name_he": "סבאיון (זבאיונה)",
+  "name_he": "זבאיונה",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r39598",
@@ -885,8 +794,8 @@
  },
  {
   "id": "r258276",
-  "name_he": "דולסה דה לצ'ה",
-  "category": "מתכוני בסיס",
+  "name_he": "דולצ'ה דה לצ'ה",
+  "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r258276",
   "title_en": "Dulce de Leche",
@@ -924,7 +833,7 @@
  },
  {
   "id": "r81052",
-  "name_he": "בייגלה (בייגל)",
+  "name_he": "בייגל",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r81052",
@@ -938,7 +847,7 @@
  {
   "id": "r554665",
   "name_he": "קרם פטיסייר",
-  "category": "מתכוני בסיס",
+  "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r554665",
   "title_en": "Crème pâtissière",
@@ -950,7 +859,7 @@
  },
  {
   "id": "r214846",
-  "name_he": "וופלים",
+  "name_he": "ופל בלגי",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r214846",
@@ -976,7 +885,7 @@
  },
  {
   "id": "r293596",
-  "name_he": "שפצלה",
+  "name_he": "שפצל'ה",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r293596",
@@ -1079,21 +988,8 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/E950C3F6-B073-4E09-9B6E-8B12C195EF3C/Derivates/4f4b6f61-e5ca-4acb-a3a6-6093fc65431b.jpg"
  },
  {
-  "id": "r68545",
-  "name_he": "בקר רנדנג",
-  "category": "עיקריות",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r68545",
-  "title_en": "Beef rendang",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 1,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/5be492dbf03a6f9f74c66347685785a9/Derivates/8385687cb2e5e277b0e317b92757337be7c2a17e.jpg"
- },
- {
   "id": "r588545",
-  "name_he": "קציצות ותפוחי אדמה עם גבינה חריפה",
+  "name_he": "קציצות ותפוחי אדמה בתנור עם גבינה וצ'ילי",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r588545",
@@ -1119,7 +1015,7 @@
  },
  {
   "id": "r91857",
-  "name_he": "פלאק פניר",
+  "name_he": "פאלאק פניר",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r91857",
@@ -1159,7 +1055,7 @@
  {
   "id": "r151860",
   "name_he": "מיונז",
-  "category": "מתכוני בסיס",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r151860",
   "title_en": "Mayonnaise",
@@ -1168,19 +1064,6 @@
   "shares": 2,
   "pos": 1,
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/f0dc8efc7feccf2538d91103b70aa402/Derivates/e84471fd0373bea842fb69338ff1290bfe451823.jpg"
- },
- {
-  "id": "r548589",
-  "name_he": "ממרח לימון (לימון קרד)",
-  "category": "מתכוני בסיס",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r548589",
-  "title_en": "Lemon Curd",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 3,
-  "pos": 2,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/3235cf82-c215-47c9-9bd2-72c5954c7470/Derivates/1fa3516f-abed-4176-88cd-e4c70672f5a6.jpg"
  },
  {
   "id": "r400916",
@@ -1275,7 +1158,7 @@
  },
  {
   "id": "r93015",
-  "name_he": "סקונס אגוזי מלך",
+  "name_he": "סקונז אגוזי מלך",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r93015",
@@ -1340,7 +1223,7 @@
  },
  {
   "id": "r67135",
-  "name_he": "פסטה קרבונרה",
+  "name_he": "ספגטי קרבונרה",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r67135",
@@ -1405,7 +1288,7 @@
  },
  {
   "id": "r76318",
-  "name_he": "טורטה די ריקוטה",
+  "name_he": "עוגת ריקוטה",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r76318",
@@ -1418,7 +1301,7 @@
  },
  {
   "id": "r575120",
-  "name_he": "פנה קוטה בטרסקוטש עם סורבה אגסים",
+  "name_he": "פנקוטה באטרסקוץ' עם סורבה אגסים",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r575120",
@@ -1536,7 +1419,7 @@
  {
   "id": "r112531",
   "name_he": "טחינה",
-  "category": "מתכוני בסיס",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r112531",
   "title_en": "Tahini",
@@ -1626,7 +1509,7 @@
  },
  {
   "id": "r382832",
-  "name_he": "לביבות קישוא (גם לפעוטות)",
+  "name_he": "לביבות קישואים",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r382832",
@@ -1677,19 +1560,6 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/D3FE52E4-2214-45BB-82DC-6913C8CC7F93/Derivates/F78A7F50-0AD1-4B73-8321-6E37C484A8D9.jpg"
  },
  {
-  "id": "r769295",
-  "name_he": "באדהא בול עוף",
-  "category": "עיקריות",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r769295",
-  "title_en": "Chicken Buddha bowl (Thermomix® Cutter)",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 0,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/2212ae62-8052-4d4d-a694-1aaf2897b7c9/Derivates/e283d0b4-9966-4089-913c-3833fc4ed951.jpg"
- },
- {
   "id": "r168330",
   "name_he": "עוגת גבינה ניו אורלינס",
   "category": "מתוקים",
@@ -1704,7 +1574,7 @@
  },
  {
   "id": "r822485",
-  "name_he": "נאצ'וס פלפלים מתוקים עם גואקמולי",
+  "name_he": "סלסה ועגבניות לנאצ'וס",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r822485",
@@ -1730,7 +1600,7 @@
  },
  {
   "id": "r722842",
-  "name_he": "אנג'רה (לחם אתיופי)",
+  "name_he": "אינג'רה (לחם אתיופי)",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r722842",
@@ -1756,7 +1626,7 @@
  },
  {
   "id": "r71113",
-  "name_he": "פצפוצי שוקולד גולמי",
+  "name_he": "לוחות שוקולד גולמי שבורים",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r71113",
@@ -1796,7 +1666,7 @@
  {
   "id": "r108984",
   "name_he": "קיש עגבניות צבעוני",
-  "category": "מאפים ולחמים",
+  "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r108984",
   "title_en": "Bunte Paradeiser-Quiche",
@@ -1847,7 +1717,7 @@
  },
  {
   "id": "r166328",
-  "name_he": "קציצות ברוטב עגבניות (דאוד באשא)",
+  "name_he": "קציצות ברוטב עגבניות",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r166328",
@@ -1912,7 +1782,7 @@
  },
  {
   "id": "r213917",
-  "name_he": "חומוס מסורתי",
+  "name_he": "חומוס",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r213917",
@@ -1939,7 +1809,7 @@
  {
   "id": "r752207",
   "name_he": "קיש לורן",
-  "category": "מאפים ולחמים",
+  "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r752207",
   "title_en": "Quiche Lorraine",
@@ -1964,7 +1834,7 @@
  },
  {
   "id": "r88311",
-  "name_he": "מרק קורן עם עוף",
+  "name_he": "מרק עוף, תירס וברוקולי",
   "category": "מרקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r88311",
@@ -2029,7 +1899,7 @@
  },
  {
   "id": "r451223",
-  "name_he": "פילה בקר סו-וי",
+  "name_he": "פילה בקר בסו-ויד",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r451223",
@@ -2069,7 +1939,7 @@
  {
   "id": "r758051",
   "name_he": "גואה באו – באנים ממולאים בבטן חזיר",
-  "category": "מאפים ולחמים",
+  "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r758051",
   "title_en": "Gua bao (braised pork belly in bao buns)",
@@ -2082,7 +1952,7 @@
  {
   "id": "r771348",
   "name_he": "גואה באו עם בשר בבישול ארוך",
-  "category": "מאפים ולחמים",
+  "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r771348",
   "title_en": "Gua Bao - gedämpfte Buns gefüllt mit Schmorfleisch und Sweet Chilisauce",
@@ -2093,21 +1963,8 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/7cd0e54f1fd2ed6d01e8ed133f4ca5a1/Derivates/3528cedb7d35477afc3fe22fc2441a9c8862ccfd.jpg"
  },
  {
-  "id": "r116592",
-  "name_he": "לחם אפוי עם גבינה",
-  "category": "מאפים ולחמים",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r116592",
-  "title_en": "Überbackenes Brot",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 0,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/E6615740-07DB-4A3E-A3ED-E7CCA2D38B7F/Derivates/56FD81A6-1672-4B7E-A020-FDFD256A28DD.jpg"
- },
- {
   "id": "r562343",
-  "name_he": "שמן עשוי לימון ורוזמרין",
+  "name_he": "שמן עם לימון ורוזמרין",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r562343",
@@ -2120,7 +1977,7 @@
  },
  {
   "id": "r213912",
-  "name_he": "תערובת תבלינים בהארט",
+  "name_he": "בהרט",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r213912",
@@ -2133,7 +1990,7 @@
  },
  {
   "id": "r547828",
-  "name_he": "תערובת תבלינים לחג",
+  "name_he": "תערובת תבלינים לחג המולד",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r547828",
@@ -2172,7 +2029,7 @@
  },
  {
   "id": "r773362",
-  "name_he": "בורי טו ביבימבאפ",
+  "name_he": "בוריטו ביבימבאפ",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r773362",
@@ -2290,7 +2147,7 @@
  {
   "id": "r554663",
   "name_he": "רוטב ברנז",
-  "category": "מתכוני בסיס",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r554663",
   "title_en": "Béarnaise sauce",
@@ -2316,7 +2173,7 @@
  {
   "id": "r70863",
   "name_he": "צזיקי",
-  "category": "מתכוני בסיס",
+  "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r70863",
   "title_en": "Tzatziki",
@@ -2405,19 +2262,6 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/8906e7b4816f37978999dc8d83b83c82/Derivates/d554cb81c80c323d676b89417b070a8346407423.jpg"
  },
  {
-  "id": "r47942",
-  "name_he": "פסטה מבושלת",
-  "category": "מתכוני בסיס",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r47942",
-  "title_en": "Nudeln, gekocht",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 0,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/f2458457e8104a531a4c3bc884c5bc74/Derivates/4917e526b33f9ceeab89eb8d6d2df15aebb46a68.jpg"
- },
- {
   "id": "r80560",
   "name_he": "מרק גזר וכוסברה",
   "category": "מרקים",
@@ -2472,7 +2316,7 @@
  {
   "id": "r735499",
   "name_he": "רוטב לסלט עוף סיני",
-  "category": "מתכוני בסיס",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r735499",
   "title_en": "Chinese Chicken Salad Dressing",
@@ -2485,7 +2329,7 @@
  {
   "id": "r85353",
   "name_he": "שטרודל ירקות ברוטב שום",
-  "category": "מאפים ולחמים",
+  "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r85353",
   "title_en": "Gemüsestrudel mit Knoblauchsauce",
@@ -2549,7 +2393,7 @@
  },
  {
   "id": "r485347",
-  "name_he": "ריזוטו פניני שעורה עם לימון וקייל",
+  "name_he": "ריזוטו גריסי פנינה עם לימון וקייל",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r485347",
@@ -2589,7 +2433,7 @@
  {
   "id": "r591399",
   "name_he": "באן ממולא בעוף בקארי",
-  "category": "מאפים ולחמים",
+  "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r591399",
   "title_en": "Golden Pillow (Big Bun With Nyonya Curry Chicken Filling)",
@@ -2628,7 +2472,7 @@
  {
   "id": "r591601",
   "name_he": "סינבון קינמון רך במיוחד",
-  "category": "מאפים ולחמים",
+  "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r591601",
   "title_en": "Super Soft Cinnamon Rolls",
@@ -2666,7 +2510,7 @@
  },
  {
   "id": "r454257",
-  "name_he": "משחת קארי צהובה",
+  "name_he": "משחת קארי צהוב",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r454257",
@@ -2676,32 +2520,6 @@
   "shares": 1,
   "pos": 0,
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/E9173393-50D4-493D-BB59-382C3D8D89D5/Derivates/a2380550-9923-44e7-89ae-0b19288f64d3.jpg"
- },
- {
-  "id": "r168212",
-  "name_he": "טחינה עם טרטור",
-  "category": "מתכוני בסיס",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r168212",
-  "title_en": "Tahini dip (tarator)",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 2,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/DF3266A1-1FC6-4E83-A5BF-8904B2E26F92/Derivates/7fa45c1e-cf0f-4559-84ca-149d2dfe1614.jpg"
- },
- {
-  "id": "r613676",
-  "name_he": "בישול ניוקי או פסטה",
-  "category": "מתכוני בסיס",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r613676",
-  "title_en": "Cooking gnocchi or pasta",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 2,
-  "pos": 2,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/14a35c14-78d8-4721-a56c-5325f2da5870/Derivates/932af2f4-669f-4b7e-a760-1b0727b2ce17.jpg"
  },
  {
   "id": "r824902",
@@ -2770,7 +2588,7 @@
  },
  {
   "id": "r138792",
-  "name_he": "קאפקייקס שוקולד בסיסיים",
+  "name_he": "קאפקייקס שוקולד",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r138792",
@@ -2783,7 +2601,7 @@
  },
  {
   "id": "r407254",
-  "name_he": "לחמניות נקניקיות",
+  "name_he": "לחמניות לנקניקיות",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r407254",
@@ -2808,21 +2626,8 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/ba00a69bb2e6478f6442374d1245356b/Derivates/e2ef70ef082b9b713331d54c6002ecacd73442e6.jpg"
  },
  {
-  "id": "r410747",
-  "name_he": "חטיף \"בית קטן\"",
-  "category": "מתוקים",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r410747",
-  "title_en": "\"Little house\" slice",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 2,
-  "pos": 6,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/c3ec7d33-8660-4ccb-bf12-b77527037feb/Derivates/c4661be9-69b4-4965-bd56-7e2316e42663.jpg"
- },
- {
   "id": "r94321",
-  "name_he": "עוגת ריבס, תפוז ושקדים",
+  "name_he": "עוגת רובארב, תפוז ושקדים",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r94321",
@@ -2873,21 +2678,8 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/47759793-9B2E-46D6-945D-FF728E44F69D/Derivates/F9CE11A2-2E18-4FED-94F9-5C49E5B13AEC.jpg"
  },
  {
-  "id": "r86485",
-  "name_he": "רגו בקר עם מקרוני",
-  "category": "עיקריות",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r86485",
-  "title_en": "Beef-Ragout with Macaroni",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 2,
-  "pos": 2,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/52071447-3464-4EC4-84E2-85C5D35E711E/Derivates/30020811-0E08-45B0-AC2C-15A13F24C745.jpg"
- },
- {
   "id": "r80338",
-  "name_he": "לחם לבן יומיומי קל",
+  "name_he": "לחם לבן",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r80338",
@@ -2913,7 +2705,7 @@
  },
  {
   "id": "r805190",
-  "name_he": "פאד תאי עם סאטיי עוף",
+  "name_he": "פאד תאי עם עוף קרוע",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r805190",
@@ -2936,32 +2728,6 @@
   "shares": 3,
   "pos": 0,
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/A7C73575-7CCC-498E-87F9-5B5C95AA8AFF/Derivates/F529C721-4210-4989-8F64-AFE4F623069F.jpg"
- },
- {
-  "id": "r906394",
-  "name_he": "עוגת בונדט תפוז שלם",
-  "category": "מתוקים",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r906394",
-  "title_en": "Whole Orange Bundt Cake",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 2,
-  "pos": 2,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/bd0f094a-188f-4200-b63c-9f2501dbfbdf/Derivates/272bc360-03be-458a-be5d-31015fcd84dd.jpg"
- },
- {
-  "id": "r426670",
-  "name_he": "ספלטוטו לימון ושום צלוי",
-  "category": "עיקריות",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r426670",
-  "title_en": "Lemon and Roasted Garlic Speltotto",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 0,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/a2d4f89e-17f6-4e05-8505-db06d7c09d5c/Derivates/37a2ebf4-d202-4c1c-8013-6a2d80bb5864.jpg"
  },
  {
   "id": "r130007",
@@ -3004,7 +2770,7 @@
  },
  {
   "id": "r829903",
-  "name_he": "לחם שאור כפרי",
+  "name_he": "לחם מחמצת כפרי",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r829903",
@@ -3108,7 +2874,7 @@
  },
  {
   "id": "r552016",
-  "name_he": "סטייק סו-וי",
+  "name_he": "סטייק סו-ויד",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r552016",
@@ -3121,7 +2887,7 @@
  },
  {
   "id": "r562499",
-  "name_he": "אספרגוס סו-וי עם ביצים עלומות",
+  "name_he": "אספרגוס סו-ויד עם ביצים עלומות",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r562499",
@@ -3147,7 +2913,7 @@
  },
  {
   "id": "r622653",
-  "name_he": "באגטים בשאור",
+  "name_he": "באגטים מקמח מחמצת",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r622653",
@@ -3186,7 +2952,7 @@
  },
  {
   "id": "r86521",
-  "name_he": "שלישיית פירה ירקות שורש מתוקים",
+  "name_he": "פירה ירקות שורש מתוקים",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r86521",
@@ -3250,21 +3016,8 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1f3e612584be10bbb140047f0e34e462/Derivates/54e2e0de0bdb57d17328440efe0a6ce03865b4fb.jpg"
  },
  {
-  "id": "r809260",
-  "name_he": "אטריות ב-15 דקות",
-  "category": "עיקריות",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r809260",
-  "title_en": "15-minute noodles",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 3,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/55d8abcbe68f92507e1e9ec75fff9bad/Derivates/e4a9fd487e4274d247e8e980778298b7f8c4519f.jpg"
- },
- {
   "id": "r223466",
-  "name_he": "קראמבל תותים וריבס",
+  "name_he": "קראמבל תותים ורובארב",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r223466",
@@ -3329,8 +3082,8 @@
  },
  {
   "id": "r55658",
-  "name_he": "אליולי",
-  "category": "מתכוני בסיס",
+  "name_he": "איולי",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r55658",
   "title_en": "Alioli",
@@ -3368,7 +3121,7 @@
  },
  {
   "id": "r769334",
-  "name_he": "יוגורט טבעי (ורומה)",
+  "name_he": "יוגורט בורומה",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r769334",
@@ -3381,7 +3134,7 @@
  },
  {
   "id": "r536582",
-  "name_he": "יוגורט טבעי (בקערה)",
+  "name_he": "יוגורט בקערה",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r536582",
@@ -3394,7 +3147,7 @@
  },
  {
   "id": "r613661",
-  "name_he": "גהי (חמאה מזוקקת)",
+  "name_he": "גי (חמאה מזוקקת)",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r613661",
@@ -3407,7 +3160,7 @@
  },
  {
   "id": "r719798",
-  "name_he": "פטוצ'יני עוף עגבניות ובזיליקום",
+  "name_he": "פטוצ'יני עוף, עגבניות ובזיליקום",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r719798",
@@ -3471,22 +3224,9 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/7FA6FE44-A950-4453-8316-A5700FEF2617/Derivates/3378656C-BFE0-4E30-A645-63B172D0FD7A.jpg"
  },
  {
-  "id": "r637018",
-  "name_he": "עוגת גבינה שרופה בסגנון באסקי",
-  "category": "מתוקים",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r637018",
-  "title_en": "Basque Burnt Cheesecake",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 2,
-  "pos": 0,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/63437ceaaca08392d64a4f54abcbe225/Derivates/d34ad6dd998b08781eb1b5cebdb014f3673fcf81.jpg"
- },
- {
   "id": "r784899",
   "name_he": "בולונז קלאסי",
-  "category": "עיקריות",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r784899",
   "title_en": "Bolognese classico",
@@ -3512,7 +3252,7 @@
  {
   "id": "r725361",
   "name_he": "ויניגרט תותים",
-  "category": "מתכוני בסיס",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r725361",
   "title_en": "Strawberry Vinaigrette",
@@ -3525,7 +3265,7 @@
  {
   "id": "r712526",
   "name_he": "אמפנדה טונה",
-  "category": "מאפים ולחמים",
+  "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r712526",
   "title_en": "Tuna empanada",
@@ -3537,7 +3277,7 @@
  },
  {
   "id": "r83120",
-  "name_he": "פוסט לימון",
+  "name_he": "פוסט (Posset) לימון",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r83120",
@@ -3629,7 +3369,7 @@
  {
   "id": "r695149",
   "name_he": "סינבון קינמון",
-  "category": "מאפים ולחמים",
+  "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r695149",
   "title_en": "Cinnamon buns",
@@ -3640,21 +3380,8 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/bb5974cb9a6179b695bcaff8927f1ac7/Derivates/52dba52ccfed5eb5b7436d06f6494dfa37344f0f.jpg"
  },
  {
-  "id": "r792931",
-  "name_he": "ריזוטו פרמזן",
-  "category": "תוספות",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r792931",
-  "title_en": "Parmesan Risotto",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 1,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/8D2A0883-95BA-4C9F-A575-303577F532D4/Derivates/0352efd2-6108-439d-a0c6-de080e5859a3.jpg"
- },
- {
   "id": "r69009",
-  "name_he": "חלום פירותי (גלידה רכה)",
+  "name_he": "גלידת פירות רכה",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r69009",
@@ -3732,7 +3459,7 @@
  },
  {
   "id": "r772699",
-  "name_he": "אפרול ספריץ",
+  "name_he": "אפרול שפריץ",
   "category": "משקאות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r772699",
@@ -3797,7 +3524,7 @@
  },
  {
   "id": "r823249",
-  "name_he": "פסטה עוף שמנת \"Marry me\"",
+  "name_he": "פסטה עוף ושמנת",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r823249",
@@ -3836,7 +3563,7 @@
  },
  {
   "id": "r66358",
-  "name_he": "פנה פוטנסקה",
+  "name_he": "פסטה פוטנסקה",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r66358",
@@ -3940,7 +3667,7 @@
  },
  {
   "id": "r807732",
-  "name_he": "ממרח פאבה יווני",
+  "name_he": "ממרח פאבה (פול) יווני",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r807732",
@@ -3992,7 +3719,7 @@
  },
  {
   "id": "r904035",
-  "name_he": "פוקאצ'ה צ'יזבורגר",
+  "name_he": "פוקצ'ה צ'יזבורגר",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r904035",
@@ -4019,7 +3746,7 @@
  {
   "id": "r70755",
   "name_he": "רוטב קיסר",
-  "category": "מתכוני בסיס",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r70755",
   "title_en": "Caesar salad dressing",
@@ -4032,7 +3759,7 @@
  {
   "id": "r496635",
   "name_he": "פוטסטיקרס (כופתאות מטוגנות)",
-  "category": "מאפים ולחמים",
+  "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r496635",
   "title_en": "Potstickers",
@@ -4044,7 +3771,7 @@
  },
  {
   "id": "r754569",
-  "name_he": "דלגונה קפה קלאסי",
+  "name_he": "קפה דלגונה (קפה קוריאני)",
   "category": "משקאות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r754569",
@@ -4057,7 +3784,7 @@
  },
  {
   "id": "r150493",
-  "name_he": "רגו בקר",
+  "name_he": "ראגו בקר",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r150493",
@@ -4096,7 +3823,7 @@
  },
  {
   "id": "r132395",
-  "name_he": "פסטה עוף בסיר אחד עם ברביקיו מתוק",
+  "name_he": "פסטה עוף ברוטב ברביקיו מתוק בסיר אחד",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r132395",
@@ -4109,7 +3836,7 @@
  },
  {
   "id": "r403879",
-  "name_he": "ביסקוויטים שום וצ'דר",
+  "name_he": "לחמניות שום וצ'דר",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r403879",
@@ -4135,7 +3862,7 @@
  },
  {
   "id": "r822496",
-  "name_he": "מקרוני אנד צ'יז",
+  "name_he": "מק אנד צ'יז",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r822496",
@@ -4148,7 +3875,7 @@
  },
  {
   "id": "r491107",
-  "name_he": "בצל מטוגן (200 גרם)",
+  "name_he": "בצל מטוגן",
   "category": "מתכוני בסיס",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r491107",
@@ -4174,7 +3901,7 @@
  },
  {
   "id": "r829559",
-  "name_he": "מקלות קישוא עם פרמזן וברוטב יוגורט",
+  "name_he": "מקלות קישואים עם פרמזן ורוטב יוגורט",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r829559",
@@ -4223,19 +3950,6 @@
   "shares": 1,
   "pos": 1,
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/67CEADD9-220C-48E3-BA2F-17970BFDE086/Derivates/b17f330e-0a89-4b87-ac60-a68db76c66a5.jpg"
- },
- {
-  "id": "r491105",
-  "name_he": "בצל מוקפץ (300 גרם)",
-  "category": "מתכוני בסיס",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r491105",
-  "title_en": "Sautéed Onions (300 g)",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 2,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/3136EE89-D495-42C5-9769-DF6674C08C6A/Derivates/EDC88487-BA25-4A26-AA3C-22EC3DAC4705.jpg"
  },
  {
   "id": "r178524",
@@ -4290,19 +4004,6 @@
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/03acf816-ec8a-43fd-88ef-44f9f4becc28/Derivates/d768fba3-9735-4c47-af61-797a65003f69.jpg"
  },
  {
-  "id": "r71138",
-  "name_he": "עוף בשכבות",
-  "category": "עיקריות",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r71138",
-  "title_en": "Layered chicken dinner",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 2,
-  "pos": 2,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/d7ca94053a265709aa73e4c1a27c5879/Derivates/a5a6baa18fa85d206ee915a96aa2e65d423c87a1.jpg"
- },
- {
   "id": "r224049",
   "name_he": "פשטידת טונה ואטריות",
   "category": "עיקריות",
@@ -4317,7 +4018,7 @@
  },
  {
   "id": "r428446",
-  "name_he": "מרק ירקות שמנת",
+  "name_he": "מרק ירקות סמיך",
   "category": "מרקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r428446",
@@ -4356,7 +4057,7 @@
  },
  {
   "id": "r909274",
-  "name_he": "עוגת פאונד תפוז",
+  "name_he": "עוגת תפוז (Pound cake)",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r909274",
@@ -4369,7 +4070,7 @@
  },
  {
   "id": "r159930",
-  "name_he": "קינוח קפה",
+  "name_he": "קינוח קפה בכוסות",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r159930",
@@ -4395,7 +4096,7 @@
  },
  {
   "id": "r105670",
-  "name_he": "עוגת יער שחור",
+  "name_he": "עוגת היער השחור",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r105670",
@@ -4408,7 +4109,7 @@
  },
  {
   "id": "r419069",
-  "name_he": "שרלוטקה",
+  "name_he": "שרלוטקה (עוגת תפוחים)",
   "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r419069",
@@ -4447,7 +4148,7 @@
  },
  {
   "id": "r247296",
-  "name_he": "פרמיג'אנה חצילים",
+  "name_he": "פרמג'אנה חצילים",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r247296",
@@ -4473,7 +4174,7 @@
  },
  {
   "id": "r82528",
-  "name_he": "לחמניות לבנות אצבעות",
+  "name_he": "לחמניות לבנות",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r82528",
@@ -4499,7 +4200,7 @@
  },
  {
   "id": "r89682",
-  "name_he": "בריה מומס עם פסטו בזיליקום ולימון",
+  "name_he": "גבינת ברי מומסת עם פסטו בזיליקום ולימון",
   "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r89682",
@@ -4538,7 +4239,7 @@
  },
  {
   "id": "r626979",
-  "name_he": "לחם חלב טנגז'ונג",
+  "name_he": "לחם חלב טנזונג",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r626979",
@@ -4551,7 +4252,7 @@
  },
  {
   "id": "r462674",
-  "name_he": "לחם כריכים לבן כפרי",
+  "name_he": "לחם סנדויצ'ים לבן כפרי",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r462674",
@@ -4587,19 +4288,6 @@
   "shares": 1,
   "pos": 1,
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/86253b79-ed93-41e3-8eb5-b464f2ccbda8/Derivates/e6004605-d35a-43ec-86f8-072228437012.jpg"
- },
- {
-  "id": "r86649",
-  "name_he": "קרקרים עתירי זרעים",
-  "category": "מאפים ולחמים",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r86649",
-  "title_en": "Seriously Seedy Crackers",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 1,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/5ED40FE4-E890-464E-923A-D40EFA9A3939/Derivates/94C6BEFA-00CA-4523-9D82-B9A96F362A2F.jpg"
  },
  {
   "id": "r246559",
@@ -4695,7 +4383,7 @@
  {
   "id": "r706259",
   "name_he": "פשטידת בצל",
-  "category": "מאפים ולחמים",
+  "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r706259",
   "title_en": "Zwiebelkuchen",
@@ -4733,8 +4421,8 @@
  },
  {
   "id": "r74815",
-  "name_he": "פנקייקס אמריקאי",
-  "category": "מאפים ולחמים",
+  "name_he": "פנקייקס",
+  "category": "מתוקים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r74815",
   "title_en": "Блинчики по-американски",
@@ -4759,7 +4447,7 @@
  },
  {
   "id": "r315693",
-  "name_he": "אורקייטה עם פסטו אבוקדו",
+  "name_he": "פסטה בפסטו אבוקדו",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r315693",
@@ -4785,7 +4473,7 @@
  },
  {
   "id": "r911287",
-  "name_he": "קארי חומוס חמאה עם אורז כרובית",
+  "name_he": "קארי חומוס וחמאה עם אורז כרובית",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r911287",
@@ -4821,19 +4509,6 @@
   "shares": 1,
   "pos": 1,
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/A794D799-0FC3-4C1B-9BF7-B0ED53C8F143/Derivates/B95E4DAF-5F7D-446C-A780-BBBC1AD1A93B.jpg"
- },
- {
-  "id": "r40173",
-  "name_he": "מיונז מפוסטר",
-  "category": "מתכוני בסיס",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r40173",
-  "title_en": "Mayonesa higienizada",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 0,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/d8faea8d7a906f5e17f3fdb0574857d9/Derivates/6f91a6427b855a7ce8bc11fdfcc06c73a6545554.jpg"
  },
  {
   "id": "r921911",
@@ -4889,7 +4564,7 @@
  },
  {
   "id": "r543116",
-  "name_he": "פסטה עם רגו ירקות",
+  "name_he": "פסטה עם ראגו ירקות",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r543116",
@@ -4968,7 +4643,7 @@
  {
   "id": "r238979",
   "name_he": "פשטידת פילו ותרד",
-  "category": "מאפים ולחמים",
+  "category": "תוספות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r238979",
   "title_en": "Filo spinach slice",
@@ -4993,7 +4668,7 @@
  },
  {
   "id": "r175642",
-  "name_he": "מג'דרה – עדשים ואורז עם בצל מטוגן",
+  "name_he": "מג'דרה",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r175642",
@@ -5016,19 +4691,6 @@
   "shares": 1,
   "pos": 0,
   "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/04470D9D-213B-404E-BE9E-286133232BCB/Derivates/997be78e0db07dcdbfcd6040a31ce444627c7660.jpg"
- },
- {
-  "id": "r548404",
-  "name_he": "מי דיטוקס",
-  "category": "משקאות",
-  "note": "",
-  "url": "https://cookidoo.international/recipes/recipe/en/r548404",
-  "title_en": "Detox Water (Flat Belly) (TM5/6 Metric)",
-  "in_drive": false,
-  "in_chat": true,
-  "shares": 1,
-  "pos": 0,
-  "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/35F12821-8BB2-4BBF-BA42-07F0E9D47806/Derivates/07A4C5EC-480A-45BB-8ACD-E1C8294CE7FF.jpg"
  },
  {
   "id": "r759380",
@@ -5058,8 +4720,8 @@
  },
  {
   "id": "r100432",
-  "name_he": "רוטב בולונז",
-  "category": "מתכוני בסיס",
+  "name_he": "בולונז",
+  "category": "רטבים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r100432",
   "title_en": "Bolognesesauce",
@@ -5136,7 +4798,7 @@
  },
  {
   "id": "r733234",
-  "name_he": "ביסי בייגלה",
+  "name_he": "חתיכות בייגל",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r733234",
@@ -5149,7 +4811,7 @@
  },
  {
   "id": "r941342",
-  "name_he": "ביסי בייגלה עם רוטב גבינת בירה",
+  "name_he": "חתיכות בייגל עם רוטב גבינת בירה",
   "category": "מאפים ולחמים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r941342",
@@ -5162,7 +4824,7 @@
  },
  {
   "id": "r230692",
-  "name_he": "סלט תפוחי אדמה עם ביצי שלווים, צלפים ואנשובי",
+  "name_he": "סלט תפוחי אדמה עם ביצי שלו, צלפים ואנשובי",
   "category": "סלטים",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r230692",
@@ -5175,7 +4837,7 @@
  },
  {
   "id": "r490447",
-  "name_he": "קארי עוף קוקוס שמנת",
+  "name_he": "קארי עוף, קוקוס שמנת",
   "category": "עיקריות",
   "note": "",
   "url": "https://cookidoo.international/recipes/recipe/en/r490447",

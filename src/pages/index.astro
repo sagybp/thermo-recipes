@@ -1,12 +1,19 @@
 ---
-import '@fontsource/amatic-sc/hebrew-400.css';
 import '@fontsource/amatic-sc/hebrew-700.css';
 import '@fontsource/assistant/hebrew-400.css';
+import '@fontsource/assistant/hebrew-500.css';
+import '@fontsource/assistant/hebrew-600.css';
 import '../styles/notebook.css';
 import all from '../../data/recipes.json';
 import { norm } from '../lib/norm';
 
-const ORDER = ['עיקריות', 'מתוקים', 'מאפים ולחמים', 'מתכוני בסיס', 'תוספות', 'סלטים', 'מרקים', 'משקאות'];
+const ORDER = ['עיקריות', 'מתוקים', 'מאפים ולחמים', 'מתכוני בסיס', 'רטבים', 'תוספות', 'סלטים', 'מרקים', 'משקאות'];
+
+// Alphabetical order: ignore leading punctuation, Hebrew names first, then names that start in English.
+const sortKey = (s: string) => {
+  const t = s.replace(/^[^\p{L}\p{N}]+/u, '');
+  return (/^[A-Za-z]/.test(t) ? '￿' : '') + t;
+};
 
 // Only what the page needs: no chat metadata, no sender info.
 const recipes = all
@@ -18,7 +25,7 @@ const recipes = all
     shares: (r.shares || 0) as number,
     search: norm(`${r.name_he} ${r.title_en ?? ''} ${r.category}`),
   }))
-  .sort((a, b) => b.shares - a.shares || a.name.localeCompare(b.name, 'he'));
+  .sort((a, b) => sortKey(a.name).localeCompare(sortKey(b.name), 'he'));
 
 const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
 ---
@@ -31,7 +38,6 @@ const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
     <meta name="description" content="אוסף המתכונים שקבוצת תרמומיקס אהבה" />
   </head>
   <body>
-    <div class="tape"></div>
     <main>
       <h1>המתכונים שלנו</h1>
       <p class="tagline">{recipes.length} מתכוני תרמומיקס שהקבוצה אהבה</p>
@@ -52,7 +58,6 @@ const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
           <li data-cat={r.cat} data-s={r.search}>
             <a href={r.url} target="_blank" rel="noopener noreferrer">
               <span class="name">{r.name}</span>
-              {r.shares >= 2 && <span class="meta">♥ {r.shares}</span>}
             </a>
             {r.note && <span class="note">{r.note}</span>}
           </li>
@@ -60,8 +65,6 @@ const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
       </ul>
       <p class="empty" id="empty" hidden>לא מצאנו… נסו מילה אחרת</p>
 
-      <span class="stamp">מומלץ!</span>
-      <footer>הקישורים נפתחים באתר Cookidoo (נדרש חיבור).</footer>
     </main>
 
     <script>

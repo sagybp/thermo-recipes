@@ -10,3 +10,4 @@ design-options.html
 # chat-derived working data (message excerpts); only the final recipe list is published
 data/*
 !data/recipes.json
+editor.html

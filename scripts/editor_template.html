@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>עריכת המתכונים</title>
+<style>
+:root{--bg:#f7f3ea;--ink:#241f18;--card:#fff;--line:#e3d9c6;--acc:#c8402f;--ok:#2f7d4f;--warn:#fff3c4;--del:#f6d9d3}
+@media(prefers-color-scheme:dark){:root{--bg:#1c1914;--ink:#f0e8d8;--card:#27231c;--line:#3d362a;--warn:#4a3f1a;--del:#4a2620}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,'Segoe UI',sans-serif;padding-bottom:80px}
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 14px}
+.top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+h1{font-size:17px;margin:0;flex:1 1 100%}
+.top button{padding:5px 10px;font-size:14px}
+button,select,input,textarea{font:inherit;color:inherit}
+button{padding:7px 12px;border-radius:9px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer}
+button.g{background:none;color:var(--ink)}
+#q{width:100%;margin-top:8px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card)}
+.f{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;margin-top:6px;scrollbar-width:none}
+.f button{flex:none;padding:4px 11px;font-size:14px;background:none;color:var(--ink);border-color:var(--line)}
+.f button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#stat{font-size:13px;opacity:.75;margin-top:6px}
+main{padding:10px 14px;max-width:760px;margin:0 auto}
+.r{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 10px;margin-bottom:9px}
+.r.ch{background:var(--warn)}.r.dl{background:var(--del)}
+.r.dl .nmt,.r.dl .en{text-decoration:line-through;opacity:.6}
+.l1{display:flex;gap:6px;align-items:center}
+.nm{flex:1;min-width:0;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-weight:600}
+select{padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg)}
+.nm{flex:2;min-width:0;font-size:15px;padding:7px 6px}
+.nm[hidden],.nmt[hidden]{display:none}
+.ck{flex:none;min-width:38px;height:38px;font-size:19px;color:var(--line);border:2px solid var(--line);border-radius:50%;padding:0;line-height:1}
+.r.ok{border-color:var(--ok);border-width:2px}
+.r.ok .ck{background:var(--ok);border-color:var(--ok);color:#fff}
+.nmt{flex:2;min-width:0;font-weight:700;font-size:16px;line-height:1.25;color:inherit;text-decoration:none;padding:6px 4px;border-radius:8px}
+.nmt:active,.en:active{background:var(--line)}
+.en{text-decoration:underline;text-decoration-color:var(--line);color:inherit}
+.ed{opacity:.7}
+.en{flex:1.3;min-width:0;font-size:14px;line-height:1.25;opacity:.85;direction:ltr;text-align:left;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+a.o{font-size:18px;color:var(--acc);text-decoration:none;padding:0 4px}
+.cats{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.cb{padding:3px 7px;font-size:12.5px;background:none;color:var(--ink);border-color:var(--line)}
+.cb.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.an{margin-top:6px;padding:2px 8px;font-size:13px;background:none;color:var(--ink);border:1px dashed var(--line);opacity:.8}
+.ic{padding:5px 9px;font-size:15px;background:none;color:var(--ink);border-color:var(--line)}
+textarea.nt{width:100%;margin-top:6px;padding:6px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-size:14px;resize:vertical;min-height:38px}
+.add{background:var(--card);border:2px dashed var(--line);border-radius:12px;padding:10px;margin-bottom:12px;display:none}
+.add.show{display:block}.add input,.add select{width:100%;margin-bottom:6px;padding:7px 9px;border-radius:8px;border:1px solid var(--line);background:var(--bg)}
+.toast{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:99px;font-size:14px;opacity:0;transition:.25s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <h1>עריכת המתכונים · <span id="total"></span></h1>
+    <button id="addb" class="g">+ הוספה</button>
+    <button id="imp" class="g">טעינת גיבוי</button>
+    <button id="exp">ייצוא השינויים</button>
+  </div>
+  <input id="q" type="search" placeholder="חיפוש בשם, באנגלית או בקישור…">
+  <div class="f" id="cf"></div>
+  <div class="f" id="sf"></div>
+  <div id="stat"></div>
+</header>
+<main>
+  <div class="add" id="addbox">
+    <input id="a_name" placeholder="שם המתכון">
+    <input id="a_url" placeholder="קישור (https://…)" dir="ltr">
+    <select id="a_cat"></select>
+    <button id="a_ok">הוסף לרשימה</button>
+  </div>
+  <div id="list"></div>
+</main>
+<input type="file" id="file" accept=".json" hidden>
+<div class="toast" id="toast"></div>
+<script>
+const DATA=/*DATA*/[];
+const CATS=['עיקריות','מתוקים','מאפים ולחמים','מתכוני בסיס','רטבים','תוספות','סלטים','מרקים','משקאות'];
+let E={},ADDED=[],OK=new Set();
+try{E=JSON.parse(localStorage.getItem('ed_e')||'{}');ADDED=JSON.parse(localStorage.getItem('ed_a')||'[]');OK=new Set(JSON.parse(localStorage.getItem('ed_ok')||'[]'))}catch(e){}
+const save=()=>{try{localStorage.setItem('ed_e',JSON.stringify(E));localStorage.setItem('ed_a',JSON.stringify(ADDED));localStorage.setItem('ed_ok',JSON.stringify([...OK]))}catch(e){}};
+const rcls=r=>'r'+(cur(r).deleted?' dl':changed(r)?' ch':'')+(OK.has(r.id)?' ok':'');
+const all=()=>[...DATA,...ADDED];
+const $=id=>document.getElementById(id);
+const toast=t=>{const e=$('toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1600)};
+let cat='',st='all',query='';
+const cur=r=>({name:E[r.id]?.name??r.name_he,category:E[r.id]?.category??r.category,note:E[r.id]?.note??(r.note||''),deleted:!!E[r.id]?.deleted});
+const changed=r=>{const c=cur(r);return c.name!==r.name_he||c.category!==r.category||c.note!==(r.note||'')};
+function setE(id,k,v,orig){E[id]=E[id]||{};if(v===orig)delete E[id][k];else E[id][k]=v;if(k==='deleted'&&!v)delete E[id].deleted;if(!Object.keys(E[id]).length)delete E[id];save();}
+// recipes in a category that are neither approved (✓) nor deleted yet
+const rem=c=>all().filter(r=>{const x=cur(r);return !x.deleted&&!OK.has(r.id)&&(!c||x.category===c)}).length;
+const lbl=c=>{const n=rem(c);return (c||'כל הקטגוריות')+(n?' · '+n:' ✓')};
+function counts(){document.querySelectorAll('#cf button').forEach(b=>{b.textContent=lbl(b.dataset.c)})}
+function stat(){counts();const rs=all(),d=rs.filter(r=>cur(r).deleted).length,c=rs.filter(r=>!cur(r).deleted&&changed(r)).length;
+ const live=rs.filter(r=>!cur(r).deleted),ok=live.filter(r=>OK.has(r.id)).length;
+ $('total').textContent=`✓ ${ok} מתוך ${live.length}`;$('stat').textContent=`נערכו ${c} · נמחקו ${d} · נוספו ${ADDED.length}`}
+function chips(){$('cf').innerHTML='';['',...CATS].forEach(c=>{const b=document.createElement('button');b.dataset.c=c;b.textContent=lbl(c);b.className=cat===c?'on':'';b.onclick=()=>{cat=c;chips();render()};$('cf').append(b)});
+ $('sf').innerHTML='';[['all','הכול'],['un','לא נבדקו'],['ok','אושרו'],['ch','נערכו'],['dl','נמחקו'],['ad','נוספו']].forEach(([k,t])=>{const b=document.createElement('button');b.textContent=t;b.className=st===k?'on':'';b.onclick=()=>{st=k;chips();render()};$('sf').append(b)})}
+function render(){const L=$('list');L.innerHTML='';const q=query.toLowerCase();let n=0;
+ for(const r of all()){const c=cur(r);
+  if(cat&&c.category!==cat)continue;
+  if(st==='un'&&(OK.has(r.id)||c.deleted))continue;if(st==='ok'&&!OK.has(r.id))continue;
+  if(st==='ch'&&!changed(r))continue;if(st==='dl'&&!c.deleted)continue;if(st==='ad'&&!r.added)continue;
+  if(q&&!(c.name+' '+(r.title_en||'')+' '+(r.url||'')).toLowerCase().includes(q))continue;
+  if(++n>200){const m=document.createElement('p');m.textContent='מוצגים 200 ראשונים. צמצם באמצעות חיפוש או קטגוריה.';L.append(m);break}
+  const d=document.createElement('div');d.className=rcls(r);
+  const lnk=r.url?` href="${r.url}" target="_blank" rel="noopener"`:'';
+  d.innerHTML=`<div class="l1"><button class="ic ck" title="אישור שורה">✓</button><a class="nmt"${lnk}></a><input class="nm" hidden><a class="en"${lnk}>${(r.title_en||'').replace(/</g,'&lt;')}</a><button class="ic ed" title="עריכת שם">✎</button><button class="ic rm" title="${c.deleted?'שחזור':'מחיקה'}">${c.deleted?'↩':'🗑'}</button></div>
+  <div class="cats"></div>
+  <div class="nw"></div>`;
+  const nm=d.querySelector('.nm');nm.value=c.name;
+  const nmt=d.querySelector('.nmt');nmt.textContent=c.name;
+  d.querySelector('.ed').onclick=()=>{const on=nm.hidden;nm.hidden=!on;nmt.hidden=on;if(on)nm.focus();else{nmt.textContent=nm.value}};
+  nm.onblur=()=>{nm.hidden=true;nmt.hidden=false;nmt.textContent=nm.value};
+  nm.onkeydown=e=>{if(e.key==='Enter')nm.blur()};
+  const cats=d.querySelector('.cats');
+  const mark=()=>{d.className=rcls(r);stat()};
+  d.querySelector('.ck').onclick=()=>{if(OK.has(r.id))OK.delete(r.id);else OK.add(r.id);save();mark()};
+  CATS.forEach(x=>{const b=document.createElement('button');b.textContent=x;b.className='cb'+(x===c.category?' on':'');
+   b.onclick=()=>{if(r.added){r.category=x;save()}else setE(r.id,'category',x,r.category);cats.querySelectorAll('.cb').forEach(y=>y.classList.toggle('on',y===b));mark()};cats.append(b)});
+  const nw=d.querySelector('.nw');
+  const setNote=v=>{if(r.added){r.note=v;save()}else setE(r.id,'note',v,r.note||'');mark()};
+  const showNote=(focus)=>{nw.innerHTML='<textarea class="nt" placeholder="הערה"></textarea>';const nt=nw.firstChild;nt.value=c.note;nt.oninput=()=>setNote(nt.value);if(focus)nt.focus()};
+  if(c.note)showNote(false);else{const b=document.createElement('button');b.className='an';b.textContent='+ הוסף הערה';b.onclick=()=>showNote(true);nw.append(b)}
+  nm.oninput=()=>{nmt.textContent=nm.value;if(r.added){r.name_he=nm.value;ADDED=ADDED.map(a=>a.id===r.id?r:a)}else setE(r.id,'name',nm.value,r.name_he);OK.add(r.id);save();mark()};
+  d.querySelector('.rm').onclick=()=>{if(r.added){ADDED=ADDED.filter(a=>a.id!==r.id);save()}else{E[r.id]=E[r.id]||{};if(E[r.id].deleted)delete E[r.id].deleted;else E[r.id].deleted=true;if(!Object.keys(E[r.id]).length)delete E[r.id];save()}render();stat()};
+  L.append(d)}
+ stat()}
+$('q').oninput=e=>{query=e.target.value;render()};
+CATS.forEach(c=>{const o=document.createElement('option');o.textContent=c;$('a_cat').append(o)});
+$('addb').onclick=()=>$('addbox').classList.toggle('show');
+$('a_ok').onclick=()=>{const name=$('a_name').value.trim(),url=$('a_url').value.trim();if(!name||!url){toast('חסר שם או קישור');return}
+ ADDED.unshift({id:'new'+Date.now(),name_he:name,category:$('a_cat').value,url,note:'',title_en:'',added:true});save();$('a_name').value=$('a_url').value='';st='ad';chips();render();toast('נוסף')};
+function payload(){const out={edits:{},deleted:[],reviewed:[...OK],added:ADDED.map(a=>({name:a.name_he,category:a.category,url:a.url,note:a.note||''}))};
+ for(const [id,v] of Object.entries(E)){if(v.deleted)out.deleted.push(id);const e={};if('name'in v)e.name=v.name;if('category'in v)e.category=v.category;if('note'in v)e.note=v.note;if(Object.keys(e).length)out.edits[id]=e}return out}
+$('exp').onclick=()=>{const b=new Blob([JSON.stringify(payload(),null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='recipe_edits.json';a.click();toast('הקובץ ירד')};
+$('imp').onclick=()=>$('file').click();
+$('file').onchange=async e=>{try{const j=JSON.parse(await e.target.files[0].text());E={};OK=new Set(j.reviewed||[]);for(const [id,v] of Object.entries(j.edits||{}))E[id]={...v};for(const id of j.deleted||[]){E[id]=E[id]||{};E[id].deleted=true}
+ ADDED=(j.added||[]).map((a,i)=>({id:'new'+Date.now()+i,name_he:a.name,category:a.category,url:a.url,note:a.note||'',title_en:'',added:true}));save();render();toast('הגיבוי נטען')}catch(x){toast('הקובץ לא תקין')}};
+ADDED.forEach(a=>a.added=true);
+chips();render();
+</script>
+</body>
+</html>
