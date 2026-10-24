@@ -3,12 +3,13 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body dir="rtl" style="margin:0;padding:24px;background:#f6ecc8;font-family:Arial,Helvetica,sans-serif;color:#2a2a45;direction:rtl;">
   <!-- Many mail apps ignore the page direction, so every block carries dir="rtl" and direction:rtl itself.
-       Without that, punctuation such as the colon jumps to the wrong end of a Hebrew sentence. -->
+       On top of that each Hebrew sentence starts and ends with an invisible right-to-left mark (&rlm;), which keeps
+       punctuation such as the colon and the period at the end of the sentence even when the app ignores all CSS. -->
   <div dir="rtl" style="max-width:420px;margin:0 auto;background:#fffdf3;border:2px solid #2a2a45;border-radius:10px;padding:24px;text-align:right;direction:rtl;unicode-bidi:embed;">
-    <h2 dir="rtl" style="margin:0 0 12px;font-size:22px;color:#c0392b;text-align:right;direction:rtl;unicode-bidi:embed;">המתכונים שלנו</h2>
-    <p dir="rtl" style="margin:0 0 16px;font-size:16px;line-height:1.6;text-align:right;direction:rtl;unicode-bidi:embed;">הקוד שלך להתחברות לאתר:</p>
+    <h2 dir="rtl" style="margin:0 0 12px;font-size:22px;color:#c0392b;text-align:right;direction:rtl;unicode-bidi:embed;">&rlm;המתכונים שלנו&rlm;</h2>
+    <p dir="rtl" style="margin:0 0 16px;font-size:16px;line-height:1.6;text-align:right;direction:rtl;unicode-bidi:embed;">&rlm;הקוד שלך להתחברות לאתר:&rlm;</p>
     <p dir="ltr" style="margin:0 0 16px;font-size:34px;letter-spacing:8px;font-weight:bold;text-align:center;direction:ltr;unicode-bidi:embed;">{{ .Token }}</p>
-    <p dir="rtl" style="margin:0;font-size:14px;line-height:1.6;color:#6f6a5c;text-align:right;direction:rtl;unicode-bidi:embed;">הקוד תקף לזמן קצר. אם לא ביקשת להתחבר, אפשר להתעלם מהמייל.</p>
+    <p dir="rtl" style="margin:0;font-size:14px;line-height:1.6;color:#6f6a5c;text-align:right;direction:rtl;unicode-bidi:embed;">&rlm;הקוד תקף לזמן קצר.&rlm; &rlm;אם לא ביקשת להתחבר, אפשר להתעלם מהמייל.&rlm;</p>
   </div>
 </body>
 </html>
