@@ -34,7 +34,7 @@ body::before {
 }
 main { max-width: 640px; margin: 0 auto; padding: var(--lh) 64px 72px 20px; }
 /* on phones the title sits closer to the top edge (0 keeps everything on the ruled lines) */
-@media (max-width: 600px) { main { padding-top: 0; } }
+@media (max-width: 600px) { main { padding-top: 0; } main h1 { top: 6px; } }
 
 h1 {
   font: 700 64px/72px 'Amatic SC', 'Assistant', sans-serif;
@@ -45,7 +45,7 @@ h1 {
   position: relative;
   top: 10px;
 }
-.tagline { font-size: 17px; line-height: var(--lh); height: var(--lh); color: var(--muted); }
+.tagline { font-size: 17px; line-height: var(--lh); height: var(--lh); color: var(--muted); margin-bottom: var(--lh); }
 
 /* search: plain writing on its own ruled line, lifted a few px above the rule like the list rows.
    The block is two rows (72px): an empty row, then the input row. */
@@ -110,7 +110,7 @@ li a {
 li a:hover .name, li a:focus-visible .name { color: var(--red); text-decoration: underline; text-underline-offset: 4px; }
 li a:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; border-radius: 4px; }
 /* lift the writing a few px above each line, like handwriting that rests above the rule */
-.name, .meta, .note { position: relative; top: -4px; }
+.name, .meta, .note { position: relative; top: 2px; }
 .name { flex: 1; min-width: 0; }
 .meta { font: 600 14px/var(--lh) 'Assistant', sans-serif; color: var(--muted); white-space: nowrap; }
 .note { display: block; font: 400 14px/var(--lh) 'Assistant', sans-serif; color: var(--muted); padding-inline-start: 2px; }
@@ -124,7 +124,7 @@ li a { padding-inline-end: 148px; }
   width: 32px; height: var(--lh); display: grid; place-items: center; padding: 0;
   background: none; border: 0; cursor: pointer; color: var(--muted);
 }
-.act svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; position: relative; top: -3px; }
+.act svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; position: relative; top: 2px; }
 .act:focus-visible { outline: 2px solid var(--red); outline-offset: -4px; border-radius: 6px; }
 .act[data-k='fav'][aria-pressed='true'] { color: var(--red); }
 .act[data-k='fav'][aria-pressed='true'] svg { fill: currentColor; }
