@@ -1,0 +1,27 @@
+---
+import '@fontsource/amatic-sc/hebrew-700.css';
+import '@fontsource/assistant/hebrew-400.css';
+import '@fontsource/assistant/hebrew-500.css';
+import '@fontsource/assistant/hebrew-600.css';
+import '../styles/notebook.css';
+
+const { title } = Astro.props as { title: string };
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title} · המתכונים שלנו</title>
+    <meta name="theme-color" content="#f6ecc8" />
+    <link rel="icon" href={`${base}/icon.svg`} type="image/svg+xml" />
+  </head>
+  <body>
+    <main class="doc">
+      <p class="back"><a href={`${base}/`}>← חזרה למתכונים</a></p>
+      <h1>{title}</h1>
+      <slot />
+    </main>
+  </body>
+</html>

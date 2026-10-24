@@ -168,4 +168,12 @@ li a { padding-inline-end: 100px; }
 }
 .toast.on { opacity: 1; transform: none; }
 
+/* privacy / terms pages: plain writing on the ruled paper, every line on a rule */
+.doc p, .doc h2 { position: relative; top: -4px; }
+.doc p { font: 400 17px/var(--lh) 'Assistant', sans-serif; }
+.doc h2 { font: 700 20px/var(--lh) 'Assistant', sans-serif; margin-top: var(--lh); }
+.doc .back { font-size: 15px; }
+.doc .back a, .legal a { color: var(--red); text-underline-offset: 3px; }
+.legal { font: 400 14px/var(--lh) 'Assistant', sans-serif; color: var(--muted); margin-top: var(--lh); position: relative; top: -4px; }
+
 footer { font-size: 14px; line-height: var(--lh); color: var(--muted); margin-top: var(--lh); }
