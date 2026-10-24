@@ -34,7 +34,12 @@ body::before {
 }
 main { max-width: 640px; margin: 0 auto; padding: var(--lh) 64px 72px 20px; }
 /* on phones the title sits closer to the top edge (0 keeps everything on the ruled lines) */
-@media (max-width: 600px) { main { padding-top: 0; } main h1 { top: 6px; } }
+/* on phones the red margin line is dropped and its space goes back to the content */
+@media (max-width: 600px) {
+  main { padding-top: 0; padding-right: 20px; }
+  main h1 { top: 6px; }
+  body::before { display: none; }
+}
 
 h1 {
   font: 700 64px/72px 'Amatic SC', 'Assistant', sans-serif;
@@ -56,7 +61,7 @@ h1 {
   color: var(--ink);
   background: transparent;
   border: 0; border-radius: 0;
-  padding: 0 0 8px;
+  padding: 4px 0 0; /* puts the writing at the same height as the recipe names, just above the rule */
 }
 .search input::placeholder { color: var(--muted); opacity: 1; }
 .search input:focus { outline: none; }
@@ -190,6 +195,7 @@ li a { padding-inline-end: 148px; }
   font: 600 14px/var(--lh) 'Assistant', sans-serif; color: var(--red); background: none; border: 0; padding: 0;
   text-decoration: underline; text-underline-offset: 3px; cursor: pointer; white-space: nowrap; position: relative; top: -4px;
 }
+#acct { font-size: 17px; font-weight: 700; }
 .linkbtn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 3px; }
 
 /* first-visit welcome card. Every row is exactly one ruled line (36px) and the box is drawn with an inset
