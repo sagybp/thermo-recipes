@@ -3,4 +3,4 @@
 export const SUPABASE_URL = 'https://supabase.sagibp.com';
 export const SUPABASE_ANON_KEY = 'eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJyb2xlIjogImFub24iLCAiaXNzIjogInN1cGFiYXNlIiwgImlhdCI6IDE3ODI1Mzk5MjUsICJleHAiOiAyMDk3ODk5OTI1fQ.yhMazJ_AchQyaTUuYcCbXMaqgW9r85qCTF8ROmOhePY';
 // Email-code sign-in needs the sending domain to be verified in Resend. Flip to true once it is.
-export const EMAIL_LOGIN = false;
+export const EMAIL_LOGIN = true;
