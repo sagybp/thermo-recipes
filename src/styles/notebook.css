@@ -33,18 +33,23 @@ body::before {
   z-index: 2;
 }
 main { max-width: 640px; margin: 0 auto; padding: var(--lh) 64px 72px 20px; }
+/* on phones the title sits closer to the top edge (0 keeps everything on the ruled lines) */
+@media (max-width: 600px) { main { padding-top: 0; } }
 
 h1 {
   font: 700 64px/72px 'Amatic SC', 'Assistant', sans-serif;
   height: 72px;
   color: var(--red);
   white-space: nowrap;
+  /* the letters rest on the second ruled line: measured baseline is 60px down, the rule is at 71px */
+  position: relative;
+  top: 10px;
 }
 .tagline { font-size: 17px; line-height: var(--lh); height: var(--lh); color: var(--muted); }
 
 /* search: plain writing on its own ruled line, lifted a few px above the rule like the list rows.
    The block is two rows (72px): an empty row, then the input row. */
-.search { display: block; height: 72px; padding-top: var(--lh); }
+.search { display: block; height: var(--lh); }
 .search input {
   display: block; width: 100%; height: var(--lh);
   font: 600 18px/1.2 'Assistant', sans-serif;

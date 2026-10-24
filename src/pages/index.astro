@@ -70,11 +70,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </p>
       </section>
 
-      <label class="search">
-        <span hidden>חיפוש מתכון</span>
-        <input id="q" type="search" placeholder="חיפוש מתכון…" autocomplete="off" enterkeyhint="search" />
-      </label>
-
       <div class="chips" role="group" aria-label="קטגוריות">
         <button class="chip" data-cat="" aria-pressed="true">הכל</button>
         {cats.map((c) => <button class="chip" data-cat={c} aria-pressed="false">{c}</button>)}
@@ -83,6 +78,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <button class="chip" data-cat="__fav" aria-pressed="false">המועדפים שלי <span class="n" data-n="fav"></span></button>
         <button class="chip" data-cat="__made" aria-pressed="false">הכנתי <span class="n" data-n="made"></span></button>
       </div>
+
+      <label class="search">
+        <span hidden>חיפוש מתכון</span>
+        <input id="q" type="search" placeholder="חיפוש מתכון…" autocomplete="off" enterkeyhint="search" />
+      </label>
 
       <p class="count" id="count" aria-live="polite"></p>
       <ul id="list">
