@@ -51,7 +51,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <h1>המתכונים שלנו</h1>
       <p class="tagline">
         <span>{recipes.length} מתכונים שהקבוצה אהבה</span>
-        <button type="button" class="linkbtn" id="howto">איך זה עובד?</button>
+        <button type="button" class="linkbtn" id="acct">התחברות</button>
       </p>
 
       <section class="welcome" id="welcome" aria-label="איך זה עובד">
@@ -60,7 +60,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <p class="legend">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21z" /></svg> מועדף ·
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M8 12.2l3 3 5-6" /></svg> הכנתי ·
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12v7h14v-7M12 4v11M8 8l4-4 4 4" /></svg> שיתוף
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12v7h14v-7M12 4v11M8 8l4-4 4 4" /></svg> שיתוף ·
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1L3.2 9.6l6.1-.8z" /></svg> דירוג (אחרי התחברות)
         </p>
         <p id="install" hidden>אפשר להוסיף למסך הבית ולהשתמש כמו באפליקציה.</p>
         <p class="ok">
@@ -91,6 +92,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               <span class="name">{r.name}</span>
             </a>
             <span class="acts">
+              <button type="button" class="act rate" data-k="rate" aria-pressed="false" aria-label="דירוג" title="דירוג">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1L3.2 9.6l6.1-.8z" /></svg><span class="avg"></span>
+              </button>
               <button type="button" class="act" data-k="fav" aria-pressed="false" aria-label="שמירה במועדפים" title="מועדף">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21z" /></svg>
               </button>
@@ -106,16 +110,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         ))}
       </ul>
       <p class="empty" id="empty" hidden>לא מצאנו… נסו מילה אחרת</p>
-      <p class="legal"><a href={`${base}/privacy`}>מדיניות פרטיות</a> · <a href={`${base}/terms`}>תנאי שימוש</a></p>
+      <p class="legal"><button type="button" class="linkbtn" id="howto">איך זה עובד?</button> · <a href={`${base}/privacy`}>מדיניות פרטיות</a> · <a href={`${base}/terms`}>תנאי שימוש</a></p>
     </main>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
+    <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+      <button type="button" class="sheet-x" id="sheetClose" aria-label="סגירה">×</button>
+      <h2 id="sheetTitle"></h2>
+      <div id="sheetBody"></div>
+    </section>
 
     <script>
       import { norm } from '../lib/norm';
       import { loadMarks, saveMarks, isOn, setMark, count as countMarks } from '../lib/marks';
       import type { Kind } from '../lib/marks';
+      import { initCloud } from '../lib/cloud-ui';
 
-      const q = document.getElementById('q') as HTMLInputElement;
+      const q =document.getElementById('q') as HTMLInputElement;
       const items = [...document.querySelectorAll<HTMLLIElement>('#list li')];
       const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip[data-cat]')];
       const countEl = document.getElementById('count')!;
@@ -162,6 +174,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           : 'לא מצאנו… נסו מילה אחרת';
       }
 
+      // Account and ratings. Everything above works without it, so a slow or unreachable server never blocks the list.
+      const cloud = initCloud({
+        marks,
+        save: () => saveMarks(marks),
+        refreshMarkUi: () => { syncMarkUi(); apply(); },
+        items,
+        base: document.body.dataset.base || '',
+        toast: showToast,
+      });
+
       q.addEventListener('input', apply);
       for (const c of chips) {
         c.addEventListener('click', () => {
@@ -206,10 +228,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           showToast(copied ? 'הקישור הועתק' : 'השיתוף לא זמין בדפדפן הזה');
           return;
         }
+        if (k === 'rate') {
+          cloud.openRate(li);
+          return;
+        }
         const kind = k as Kind;
         setMark(marks, kind, li.dataset.id!, !isOn(marks, kind, li.dataset.id!));
         saveMarks(marks);
         syncMarkUi();
+        cloud.pushMark(kind, li.dataset.id!);
         if (cat === '__fav' || cat === '__made') apply();
       });
 
