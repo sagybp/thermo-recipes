@@ -164,7 +164,9 @@ li a { padding-inline-end: 148px; }
 }
 .field.code { text-align: center; letter-spacing: 0.4em; font-size: 24px; }
 .btn:focus-visible, .field:focus-visible, .star:focus-visible, .sheet-x:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
-.stars { display: flex; justify-content: center; gap: 4px; margin: 6px 0 10px; direction: rtl; }
+.scale { width: fit-content; margin: 6px auto 10px; direction: rtl; }
+.scale-ends { display: flex; justify-content: space-between; padding-inline: 4px; font: 600 13px/1.2 'Assistant', sans-serif; color: var(--muted); }
+.stars { display: flex; justify-content: center; gap: 4px; margin: 2px 0 0; direction: rtl; }
 .star { background: none; border: 0; padding: 4px; cursor: pointer; color: #c98a00; line-height: 0; }
 .star svg { width: 44px; height: 44px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
 .star[aria-pressed='true'] svg { fill: currentColor; }

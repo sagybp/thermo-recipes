@@ -193,7 +193,8 @@ export function initCloud(ctx: Ctx) {
       b.addEventListener('click', () => void rate(id, name, n));
       row.append(b);
     }
-    body.append(row);
+    // the two ends of the scale are named, so it is clear which way is better
+    body.append(h('div', { class: 'scale' }, h('div', { class: 'scale-ends', 'aria-hidden': 'true' }, h('span', {}, 'הכי נמוך'), h('span', {}, 'הכי גבוה')), row));
     body.append(h('p', { class: 'fine' }, s && s.votes ? `ממוצע ${s.avg.toFixed(1)} מתוך ${s.votes} דירוגים` : 'עוד אין דירוגים. אפשר להיות הראשונים.'));
     if (mine[id]) {
       const rm = h('button', { type: 'button', class: 'linkbtn' }, 'הסרת הדירוג שלי');
