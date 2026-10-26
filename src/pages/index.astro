@@ -77,6 +77,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="chips mine" role="group" aria-label="הרשימות שלי">
         <button class="chip" data-cat="__fav" aria-pressed="false">המועדפים שלי <span class="n" data-n="fav"></span></button>
         <button class="chip" data-cat="__made" aria-pressed="false">הכנתי <span class="n" data-n="made"></span></button>
+        <button type="button" class="chip add" id="suggest">+ מתכון חסר?</button>
       </div>
 
       <label class="search">
@@ -110,7 +111,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         ))}
       </ul>
       <p class="empty" id="empty" hidden>לא מצאנו… נסו מילה אחרת</p>
-      <p class="legal"><button type="button" class="linkbtn" id="howto">איך זה עובד?</button> · <button type="button" class="linkbtn" id="suggest">מתכון חסר? בקשו להוסיף</button> · <a href={`${base}/privacy`}>מדיניות פרטיות</a> · <a href={`${base}/terms`}>תנאי שימוש</a></p>
+      <p class="legal"><button type="button" class="linkbtn" id="howto">איך זה עובד?</button> · <a href={`${base}/privacy`}>מדיניות פרטיות</a> · <a href={`${base}/terms`}>תנאי שימוש</a></p>
     </main>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
