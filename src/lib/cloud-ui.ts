@@ -13,7 +13,7 @@ type Ctx = {
   base: string;
   toast: (msg: string) => void;
 };
-type Pending = { id: string; name: string };
+type Pending = { id: string; name: string; kind?: 'rate' | 'tips' | 'suggest' };
 
 const PENDING_KEY = 'tmx_pending_rate';
 const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1L3.2 9.6l6.1-.8z" /></svg>';
@@ -39,10 +39,12 @@ export function initCloud(ctx: Ctx) {
   let session: Session | null = null;
   let stats: Record<string, cloud.Stat> = {};
   let mine: Record<string, number> = {};
+  let tips: Record<string, string[]> = {};
+  let myTips: Record<string, string> = {};
   let booted = false;
   let syncedFor = '';
   let pending: Pending | null = null;
-  let state: 'closed' | 'login' | 'code' | 'rate' | 'account' = 'closed';
+  let state: 'closed' | 'login' | 'code' | 'rate' | 'account' | 'tips' | 'suggest' = 'closed';
   let opener: HTMLElement | null = null;
 
   // ---------- the stars inside the list ----------
@@ -57,7 +59,16 @@ export function initCloud(ctx: Ctx) {
     btn.title = s && s.votes ? `ממוצע ${s.avg.toFixed(1)} מתוך ${s.votes} דירוגים` : 'דירוג';
     btn.setAttribute('aria-label', btn.title + (mine[id] ? `, הדירוג שלך ${mine[id]}` : ''));
   }
-  const paintAll = () => ctx.items.forEach(paintRow);
+  function paintTips(li: HTMLLIElement) {
+    const btn = li.querySelector<HTMLButtonElement>('.act[data-k="tips"]');
+    if (!btn) return;
+    const n = tips[li.dataset.id!]?.length ?? 0;
+    btn.querySelector('.n')!.textContent = n ? String(n) : '';
+    btn.setAttribute('aria-pressed', String(!!myTips[li.dataset.id!]));
+    btn.title = n ? `${n} טיפים ושיפורים` : 'טיפים ושיפורים';
+    btn.setAttribute('aria-label', btn.title);
+  }
+  const paintAll = () => ctx.items.forEach((li) => { paintRow(li); paintTips(li); });
 
   function updateAcct() {
     acct.textContent = session ? 'החשבון שלי' : 'התחברות';
@@ -110,7 +121,11 @@ export function initCloud(ctx: Ctx) {
     open('login', 'התחברות');
     await ensureBooted();
     body.append(
-      h('p', {}, p ? `כדי לדרג את "${p.name}" צריך להתחבר.` : 'מתחברים כדי לדרג מתכונים ולשמור מועדפים בכל המכשירים.'),
+      h('p', {},
+        p?.kind === 'tips' ? `כדי לכתוב טיפ על "${p.name}" צריך להתחבר.`
+        : p?.kind === 'suggest' ? 'כדי לבקש להוסיף מתכון צריך להתחבר.'
+        : p ? `כדי לדרג את "${p.name}" צריך להתחבר.`
+        : 'מתחברים כדי לדרג מתכונים, לכתוב טיפים ולשמור מועדפים בכל המכשירים.'),
     );
     const google = h('button', { type: 'button', class: 'btn primary' }, 'המשך עם גוגל') as HTMLButtonElement;
     const status = msg();
@@ -233,6 +248,95 @@ export function initCloud(ctx: Ctx) {
     paintAll();
   }
 
+  // ----- tips: improvements written by members, shown to everyone without the author -----
+  function showTips(id: string, name: string) {
+    open('tips', name);
+    const list = tips[id] ?? [];
+    body.append(h('p', { class: 'fine' }, 'שיפורים והערות של חברי הקבוצה למתכון הזה. בלי שמות.'));
+    if (list.length) {
+      const ul = h('ul', { class: 'tips' });
+      for (const t of list) ul.append(h('li', {}, t));
+      body.append(ul);
+    } else {
+      body.append(h('p', {}, 'עוד אין טיפים. אפשר להיות הראשונים.'));
+    }
+    if (!session) {
+      const go = h('button', { type: 'button', class: 'btn primary' }, 'התחברות כדי לכתוב טיפ');
+      go.addEventListener('click', () => void showLogin({ id, name, kind: 'tips' }));
+      body.append(go);
+      return;
+    }
+    const mineText = myTips[id] ?? '';
+    const area = h('textarea', { class: 'field', rows: '3', maxlength: '280', 'aria-label': 'הטיפ שלכם', placeholder: 'מה שיפרתם או שיניתם? (בלי קישורים)' }) as HTMLTextAreaElement;
+    area.value = mineText;
+    const left = h('p', { class: 'fine counter' });
+    const status = msg();
+    const send = h('button', { type: 'submit', class: 'btn primary' }, mineText ? 'עדכון הטיפ שלי' : 'פרסום') as HTMLButtonElement;
+    const form = h('form', { class: 'row' }, area, left, send);
+    const upd = () => { left.textContent = `${area.value.length}/280`; };
+    area.addEventListener('input', upd);
+    upd();
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = area.value.trim();
+      if (text.length < 3) { status.textContent = 'כתבו לפחות כמה מילים.'; return; }
+      send.disabled = true;
+      status.textContent = 'שומרים…';
+      const res = await cloud.saveTip(session!.user.id, id, text, !!mineText);
+      if (res !== 'ok') {
+        send.disabled = false;
+        status.textContent = res === 'links' ? 'אי אפשר לכלול קישורים או כתובות אתר בטיפ.' : 'לא הצלחנו לשמור. נסו שוב.';
+        return;
+      }
+      await refreshTips();
+      ctx.toast('הטיפ פורסם');
+      showTips(id, name);
+    });
+    body.append(form, status);
+    if (mineText) {
+      const rm = h('button', { type: 'button', class: 'linkbtn' }, 'מחיקת הטיפ שלי');
+      rm.addEventListener('click', async () => {
+        if (!(await cloud.removeTip(id))) { status.textContent = 'לא הצלחנו למחוק. נסו שוב.'; return; }
+        await refreshTips();
+        showTips(id, name);
+      });
+      body.append(h('p', { class: 'links' }, rm));
+    }
+  }
+
+  async function refreshTips() {
+    tips = await cloud.fetchTips();
+    if (session) myTips = await cloud.fetchMyTips();
+    paintAll();
+  }
+
+  // ----- asking for a recipe to be added -----
+  function showSuggest() {
+    open('suggest', 'מתכון חסר?');
+    body.append(h('p', {}, 'הדביקו כאן קישור למתכון ב-Cookidoo ואבדוק אם להוסיף אותו לאוסף.'));
+    const url = h('input', { type: 'url', class: 'field', dir: 'ltr', inputmode: 'url', placeholder: 'https://cookidoo.international/…', required: '', 'aria-label': 'קישור למתכון' }) as HTMLInputElement;
+    const note = h('input', { type: 'text', class: 'field', maxlength: '200', placeholder: 'שם או הערה (לא חובה)', 'aria-label': 'שם או הערה' }) as HTMLInputElement;
+    const send = h('button', { type: 'submit', class: 'btn primary' }, 'שליחה') as HTMLButtonElement;
+    const status = msg();
+    const form = h('form', { class: 'row' }, url, note, send);
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const link = url.value.trim();
+      const rid = /\/(r\d+)(?:[/?#]|$)/i.exec(link)?.[1].toLowerCase();
+      if (!/^https:\/\/cookidoo\.[a-z.]+\//i.test(link) || !rid) { status.textContent = 'זה לא נראה כמו קישור למתכון ב-Cookidoo.'; return; }
+      const have = ctx.items.find((li) => li.dataset.id === rid);
+      if (have) { status.textContent = `המתכון כבר באוסף: ${have.dataset.name}`; return; }
+      send.disabled = true;
+      status.textContent = 'שולחים…';
+      const res = await cloud.sendSuggestion(session!.user.id, link, note.value.trim());
+      if (res === 'ok') { close(); ctx.toast('תודה! הבקשה נשלחה'); return; }
+      send.disabled = false;
+      status.textContent = res === 'limit' ? 'שלחתם כבר כמה בקשות היום. נסו מחר.' : res === 'url' ? 'זה לא נראה כמו קישור למתכון ב-Cookidoo.' : 'לא הצלחנו לשלוח. נסו שוב.';
+    });
+    body.append(form, status);
+    url.focus();
+  }
+
   // ----- account -----
   function showAccount() {
     open('account', 'החשבון שלי');
@@ -248,6 +352,7 @@ export function initCloud(ctx: Ctx) {
       ctx.refreshMarkUi();
       session = null;
       mine = {};
+      myTips = {};
       syncedFor = '';
       updateAcct();
       paintAll();
@@ -281,9 +386,10 @@ export function initCloud(ctx: Ctx) {
   async function handleSession(s: Session | null) {
     session = s;
     updateAcct();
-    if (!s) { mine = {}; paintAll(); return; }
+    if (!s) { mine = {}; myTips = {}; paintAll(); return; }
     if (state === 'login' || state === 'code') close();
     mine = await cloud.fetchMyRatings();
+    myTips = await cloud.fetchMyTips();
     paintAll();
     if (syncedFor !== s.user.id) {
       syncedFor = s.user.id;
@@ -294,13 +400,16 @@ export function initCloud(ctx: Ctx) {
       try { p = JSON.parse(sessionStorage.getItem(PENDING_KEY) || 'null'); sessionStorage.removeItem(PENDING_KEY); } catch { p = null; }
     }
     pending = null;
-    if (p) showRate(p.id, p.name);
+    if (p?.kind === 'suggest') showSuggest();
+    else if (p?.kind === 'tips') showTips(p.id, p.name);
+    else if (p) showRate(p.id, p.name);
   }
 
   // ---------- entry points ----------
   acct.addEventListener('click', () => (session ? showAccount() : void showLogin(null)));
 
   void cloud.fetchStats().then((s) => { stats = s; paintAll(); });
+  void cloud.fetchTips().then((t) => { tips = t; paintAll(); });
   if (cloud.hasStoredSession()) void ensureBooted();
 
   return {
@@ -309,6 +418,15 @@ export function initCloud(ctx: Ctx) {
       const p = { id: li.dataset.id!, name: li.dataset.name! };
       if (session) showRate(p.id, p.name);
       else void showLogin(p);
+    },
+    /** the speech bubble on a list row was pressed */
+    openTips(li: HTMLLIElement) {
+      showTips(li.dataset.id!, li.dataset.name!);
+    },
+    /** "missing a recipe?" in the footer */
+    openSuggest() {
+      if (session) showSuggest();
+      else void showLogin({ id: '', name: '', kind: 'suggest' });
     },
     /** a favorite / made-it mark changed on this device */
     pushMark(kind: Kind, id: string) {

@@ -123,7 +123,7 @@ li a:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; border
 .empty[hidden] { display: none; }
 
 /* personal actions: favorite, made it, share. They sit at the far (left) end of each row. */
-li a { padding-inline-end: 148px; }
+li a { padding-inline-end: 176px; }
 .acts { position: absolute; inset-block-start: 0; inset-inline-end: 0; height: var(--lh); display: flex; align-items: center; gap: 0; z-index: 1; }
 .act {
   width: 32px; height: var(--lh); display: grid; place-items: center; padding: 0;
@@ -143,6 +143,20 @@ li a { padding-inline-end: 148px; }
 .act.rate .avg:empty { display: none; }
 .act[data-k='rate'][aria-pressed='true'] { color: #c98a00; }
 .act[data-k='rate'][aria-pressed='true'] svg { fill: currentColor; }
+
+/* speech bubble on each row: number of tips; filled when I wrote one */
+.act.tip { width: auto; min-width: 32px; padding-inline: 2px; gap: 2px; display: flex; align-items: center; justify-content: center; }
+.act.tip .n { font: 600 12px/1 'Assistant', sans-serif; position: relative; top: -3px; }
+.act.tip .n:empty { display: none; }
+.act[data-k='tips'][aria-pressed='true'] { color: var(--ink); }
+.act[data-k='tips'][aria-pressed='true'] svg { fill: currentColor; }
+.act[data-k='tips'][aria-pressed='true'] path { stroke: var(--paper); }
+
+/* tips list inside the sheet */
+.sheet .tips { list-style: none; margin: 0 0 14px; padding: 0; }
+.sheet .tips li { font: 500 16px/1.5 'Assistant', sans-serif; padding: 8px 0; border-bottom: 1px dashed var(--muted); }
+.sheet textarea.field { resize: vertical; min-height: 84px; font-family: 'Assistant', sans-serif; }
+.sheet .counter { margin: 0; text-align: end; }
 
 /* account / rating sheet */
 .sheet-backdrop { position: fixed; inset: 0; background: rgba(30, 28, 50, 0.45); z-index: 10; }

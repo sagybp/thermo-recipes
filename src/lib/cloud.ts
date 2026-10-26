@@ -123,3 +123,54 @@ export async function pushMarks(userId: string, rows: MarkRow[]): Promise<boolea
   }
   return true;
 }
+
+// ---- tips: short improvements members write for a recipe (shown to everyone, without the author) ----
+export type Tip = { recipe_id: string; body: string };
+
+export async function fetchTips(): Promise<Record<string, string[]>> {
+  try {
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/tmx_recipe_tips?select=recipe_id,body&order=created_at.asc`, {
+      headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+    });
+    if (!r.ok) return {};
+    const out: Record<string, string[]> = {};
+    for (const row of (await r.json()) as Tip[]) (out[row.recipe_id] ??= []).push(row.body);
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+export async function fetchMyTips(): Promise<Record<string, string>> {
+  const c = await getClient();
+  const { data } = await c.from('tmx_tips').select('recipe_id,body');
+  const out: Record<string, string> = {};
+  for (const r of data ?? []) out[r.recipe_id as string] = r.body as string;
+  return out;
+}
+
+/** 'ok', 'links' when the text has a link in it, or 'failed'. */
+export async function saveTip(userId: string, recipeId: string, body: string, exists: boolean): Promise<'ok' | 'links' | 'failed'> {
+  const c = await getClient();
+  const { error } = exists
+    ? await c.from('tmx_tips').update({ body, updated_at: new Date().toISOString() }).eq('recipe_id', recipeId)
+    : await c.from('tmx_tips').insert({ user_id: userId, recipe_id: recipeId, body });
+  if (!error) return 'ok';
+  return /nolinks/.test(error.message) ? 'links' : 'failed';
+}
+
+export async function removeTip(recipeId: string): Promise<boolean> {
+  const c = await getClient();
+  const { error } = await c.from('tmx_tips').delete().eq('recipe_id', recipeId); // row level security limits this to my own tip
+  return !error;
+}
+
+// ---- asking for a recipe to be added ----
+export async function sendSuggestion(userId: string, url: string, note: string): Promise<'ok' | 'url' | 'limit' | 'failed'> {
+  const c = await getClient();
+  const { error } = await c.from('tmx_suggestions').insert({ user_id: userId, url, note: note || null });
+  if (!error) return 'ok';
+  if (/tmx_sug_url/.test(error.message)) return 'url';
+  if (/too many/.test(error.message)) return 'limit';
+  return 'failed';
+}

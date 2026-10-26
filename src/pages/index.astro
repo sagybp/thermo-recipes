@@ -101,6 +101,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               <button type="button" class="act" data-k="made" aria-pressed="false" aria-label="סימון שהכנתי" title="הכנתי">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M8 12.2l3 3 5-6" /></svg>
               </button>
+              <button type="button" class="act tip" data-k="tips" aria-label="טיפים ושיפורים" title="טיפים ושיפורים">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" /></svg><span class="n"></span>
+              </button>
               <button type="button" class="act" data-k="share" aria-label="שיתוף" title="שיתוף">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12v7h14v-7M12 4v11M8 8l4-4 4 4" /></svg>
               </button>
@@ -110,7 +113,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         ))}
       </ul>
       <p class="empty" id="empty" hidden>לא מצאנו… נסו מילה אחרת</p>
-      <p class="legal"><button type="button" class="linkbtn" id="howto">איך זה עובד?</button> · <a href={`${base}/privacy`}>מדיניות פרטיות</a> · <a href={`${base}/terms`}>תנאי שימוש</a></p>
+      <p class="legal"><button type="button" class="linkbtn" id="howto">איך זה עובד?</button> · <button type="button" class="linkbtn" id="suggest">מתכון חסר? בקשו להוסיף</button> · <a href={`${base}/privacy`}>מדיניות פרטיות</a> · <a href={`${base}/terms`}>תנאי שימוש</a></p>
     </main>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -232,6 +235,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           cloud.openRate(li);
           return;
         }
+        if (k === 'tips') {
+          cloud.openTips(li);
+          return;
+        }
         const kind = k as Kind;
         setMark(marks, kind, li.dataset.id!, !isOn(marks, kind, li.dataset.id!));
         saveMarks(marks);
@@ -248,6 +255,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         html.classList.add('seen-welcome');
         try { localStorage.setItem(WELCOME_KEY, '1'); } catch { /* storage blocked */ }
       });
+      document.getElementById('suggest')!.addEventListener('click', () => cloud.openSuggest());
       document.getElementById('howto')!.addEventListener('click', () => {
         html.classList.remove('seen-welcome');
         welcome.scrollIntoView({ block: 'start', behavior: 'smooth' });
