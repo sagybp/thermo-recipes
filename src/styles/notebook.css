@@ -145,7 +145,7 @@ li a:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; border
 }
 .more { margin: 0; height: var(--lh); display: flex; justify-content: center; align-items: center; }
 .more[hidden] { display: none; }
-.more .chip { border-style: dashed; }
+.more .chip { border-style: dashed; position: relative; top: 1px; }
 
 /* personal actions: favorite, made it, share. They sit at the far (left) end of each row. */
 /* the name wraps in the space left of the icons; the TIP label sits right after the last word of the name */
@@ -270,6 +270,6 @@ li a:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; border
 .doc h2 { font: 700 20px/var(--lh) 'Assistant', sans-serif; margin-top: var(--lh); }
 .doc .back { font-size: 15px; }
 .doc .back a, .legal a { color: var(--red); text-underline-offset: 3px; }
-.legal { font: 400 14px/var(--lh) 'Assistant', sans-serif; color: var(--muted); margin-top: var(--lh); position: relative; top: -4px; }
+.legal { font: 400 14px/var(--lh) 'Assistant', sans-serif; color: var(--muted); margin-top: var(--lh); position: relative; top: 3px; /* same height as the recipe names */ }
 
 footer { font-size: 14px; line-height: var(--lh); color: var(--muted); margin-top: var(--lh); }
