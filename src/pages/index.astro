@@ -88,6 +88,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <label class="search">
         <span hidden>חיפוש מתכון</span>
         <input id="q" type="search" placeholder="חיפוש מתכון…" autocomplete="off" enterkeyhint="search" />
+        <button type="button" class="clear" id="clearQ" hidden>נקה חיפוש</button>
       </label>
 
       <p class="count" id="count" aria-live="polite"></p>
@@ -120,6 +121,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <p class="empty" id="empty" hidden>לא מצאנו… נסו מילה אחרת</p>
       <p class="legal"><button type="button" class="linkbtn" id="howto">איך זה עובד?</button> · <a href={`${base}/privacy`}>מדיניות פרטיות</a> · <a href={`${base}/terms`}>תנאי שימוש</a></p>
     </main>
+    <button type="button" class="clear-float" id="clearFloat" hidden>✕ נקה חיפוש</button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
@@ -200,7 +202,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         toast: showToast,
       });
 
-      q.addEventListener('input', () => { limit = PAGE; apply(); });
+      const clearQ = document.getElementById('clearQ')!;
+      const clearFloat = document.getElementById('clearFloat')!;
+      // once the search box has scrolled out of view, a floating button keeps "clear search" within reach
+      let searchVisible = true;
+      const syncClear = () => {
+        clearQ.hidden = !q.value;
+        clearFloat.hidden = !q.value || searchVisible;
+      };
+      new IntersectionObserver(([e]) => { searchVisible = e.isIntersecting; syncClear(); }).observe(q);
+      q.addEventListener('input', () => { limit = PAGE; syncClear(); apply(); });
+      const clearSearch = () => { q.value = ''; limit = PAGE; syncClear(); apply(); };
+      clearQ.addEventListener('click', () => { clearSearch(); q.focus(); });
+      clearFloat.addEventListener('click', () => { clearSearch(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
       more.addEventListener('click', () => { limit += PAGE; apply(); });
       for (const c of chips) {
         c.addEventListener('click', () => {

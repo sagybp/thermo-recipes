@@ -54,14 +54,29 @@ h1 {
 
 /* search: plain writing on its own ruled line, lifted a few px above the rule like the list rows.
    The block is two rows (72px): an empty row, then the input row. */
-.search { display: block; height: var(--lh); }
+.search { display: block; height: var(--lh); position: relative; }
+.search input::-webkit-search-cancel-button { display: none; }
+.clear {
+  position: absolute; inset-block-start: 0; inset-inline-end: 0; height: var(--lh);
+  font: 700 14px/var(--lh) 'Assistant', sans-serif; color: var(--red); background: none; border: 0; padding: 0 2px;
+  text-decoration: underline; text-underline-offset: 3px; cursor: pointer; white-space: nowrap;
+}
+.clear[hidden] { display: none; }
+.clear-float {
+  position: fixed; inset-block-end: calc(18px + env(safe-area-inset-bottom)); inset-inline-start: 16px; z-index: 9;
+  font: 700 16px/1 'Assistant', sans-serif; color: var(--paper); background: var(--ink); border: 0; border-radius: 999px;
+  padding: 12px 18px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3); cursor: pointer;
+}
+.clear-float[hidden] { display: none; }
+.clear-float:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+.clear:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 3px; }
 .search input {
   display: block; width: 100%; height: var(--lh);
   font: 600 18px/1.2 'Assistant', sans-serif;
   color: var(--ink);
   background: transparent;
   border: 0; border-radius: 0;
-  padding: 4px 0 0; /* puts the writing at the same height as the recipe names, just above the rule */
+  padding: 4px 92px 0 0; /* the left side leaves room for the clear button; puts the writing at the same height as the recipe names, just above the rule */
 }
 .search input::placeholder { color: var(--muted); opacity: 1; }
 .search input:focus { outline: none; }
