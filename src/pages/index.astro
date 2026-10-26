@@ -25,7 +25,12 @@ const recipes = all
     note: (r.note || '') as string,
     search: norm(`${r.name_he} ${r.title_en ?? ''} ${r.category}`),
   }))
-  .sort((a, b) => sortKey(a.name).localeCompare(sortKey(b.name), 'he'));
+  .sort((a, b) => sortKey(a.name).localeCompare(sortKey(b.name), 'he'))
+  .map((r) => {
+    // the last word travels together with the TIP label, so the label never ends up alone on its own line
+    const i = r.name.lastIndexOf(' ');
+    return { ...r, head: i > 0 ? r.name.slice(0, i) : '', tail: i > 0 ? r.name.slice(i + 1) : r.name };
+  });
 
 const cats = ORDER.filter((c) => recipes.some((r) => r.cat === c));
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -90,7 +95,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         {recipes.map((r) => (
           <li data-id={r.id} data-cat={r.cat} data-s={r.search} data-name={r.name} data-url={r.url}>
             <div class="title">
-              <a href={r.url} target="_blank" rel="noopener noreferrer"><span class="name">{r.name}</span></a>&#8288;<button type="button" class="act tip" data-k="tips" aria-label="טיפים ושיפורים" title="טיפים ושיפורים"><span class="tipbadge" aria-hidden="true">TIP</span><span class="n"></span></button>
+              {r.head && <><a class="head" href={r.url} target="_blank" rel="noopener noreferrer" aria-label={r.name}><span class="name">{r.head}</span></a>{' '}</>}
+              <span class="end"><a class="tail" href={r.url} target="_blank" rel="noopener noreferrer" tabindex={r.head ? -1 : undefined} aria-hidden={r.head ? 'true' : undefined}><span class="name">{r.tail}</span></a><button type="button" class="act tip" data-k="tips" aria-label="טיפים ושיפורים" title="טיפים ושיפורים"><span class="tipbadge" aria-hidden="true">TIP</span><span class="n"></span></button></span>
             </div>
             <span class="acts">
               <button type="button" class="act rate" data-k="rate" aria-pressed="false" aria-label="דירוג" title="דירוג">
@@ -110,6 +116,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </li>
         ))}
       </ul>
+      <p class="more" id="moreWrap" hidden><button type="button" class="chip add" id="more"></button></p>
       <p class="empty" id="empty" hidden>לא מצאנו… נסו מילה אחרת</p>
       <p class="legal"><button type="button" class="linkbtn" id="howto">איך זה עובד?</button> · <a href={`${base}/privacy`}>מדיניות פרטיות</a> · <a href={`${base}/terms`}>תנאי שימוש</a></p>
     </main>
@@ -135,7 +142,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       const empty = document.getElementById('empty')!;
       const toast = document.getElementById('toast')!;
       const marks = loadMarks();
+      const PAGE = 50; // how many recipes show at first, and how many more each press adds
+      let limit = PAGE;
       let cat = '';
+      const more = document.getElementById('more')!;
+      const moreWrap = document.getElementById('moreWrap')!;
 
       function showToast(msg: string) {
         toast.textContent = msg;
@@ -158,15 +169,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       function apply() {
         const terms = norm(q.value).split(' ').filter(Boolean);
         let n = 0;
+        let shown = 0;
         for (const li of items) {
           let inView = true;
           if (cat === '__fav') inView = isOn(marks, 'fav', li.dataset.id!);
           else if (cat === '__made') inView = isOn(marks, 'made', li.dataset.id!);
           else if (cat) inView = li.dataset.cat === cat;
           const ok = inView && terms.every((t) => li.dataset.s!.includes(t));
-          li.hidden = !ok;
           if (ok) n++;
+          li.hidden = !ok || shown >= limit;
+          if (!li.hidden) shown++;
         }
+        moreWrap.hidden = shown >= n;
+        more.textContent = `הצג עוד (${n - shown} נוספים)`;
         countEl.textContent = n === items.length ? '' : `${n} מתכונים`;
         empty.hidden = n > 0;
         empty.textContent =
@@ -185,10 +200,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         toast: showToast,
       });
 
-      q.addEventListener('input', apply);
+      q.addEventListener('input', () => { limit = PAGE; apply(); });
+      more.addEventListener('click', () => { limit += PAGE; apply(); });
       for (const c of chips) {
         c.addEventListener('click', () => {
           cat = c.dataset.cat || '';
+          limit = PAGE;
           chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
           apply();
         });
