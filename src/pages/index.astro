@@ -117,9 +117,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </li>
         ))}
       </ul>
+      <div class="under">
       <p class="more" id="moreWrap" hidden><button type="button" class="chip add" id="more"></button></p>
       <p class="empty" id="empty" hidden>לא מצאנו… נסו מילה אחרת</p>
       <p class="legal"><button type="button" class="linkbtn" id="howto">איך זה עובד?</button> · <a href={`${base}/privacy`}>מדיניות פרטיות</a> · <a href={`${base}/terms`}>תנאי שימוש</a></p>
+      </div>
     </main>
     <button type="button" class="clear-float" id="clearFloat" hidden>✕ נקה חיפוש</button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>

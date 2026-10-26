@@ -136,6 +136,13 @@ li a:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; border
 .note { display: block; font: 400 14px/var(--lh) 'Assistant', sans-serif; color: var(--muted); padding-inline-start: 2px; }
 .empty { font: 600 18px/var(--lh) 'Assistant', sans-serif; color: var(--red); margin-top: var(--lh); }
 .empty[hidden] { display: none; }
+/* everything under the list draws its own ruled lines (like the rows do), so it can never sit between two lines */
+.under { position: relative; isolation: isolate; }
+.under::before {
+  content: ''; position: absolute; inset: 0 -100vw -72px; z-index: -1;
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(transparent 0 calc(var(--lh) - 1px), var(--line) calc(var(--lh) - 1px) var(--lh));
+}
 .more { margin: 0; height: var(--lh); display: flex; justify-content: center; align-items: center; }
 .more[hidden] { display: none; }
 .more .chip { border-style: dashed; }
