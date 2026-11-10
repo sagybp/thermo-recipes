@@ -77,7 +77,7 @@ textarea.nt{width:100%;margin-top:6px;padding:6px 9px;border:1px solid var(--lin
 <div class="toast" id="toast"></div>
 <script>
 const DATA=/*DATA*/[];
-const CATS=['עיקריות','מתוקים','מאפים ולחמים','מתכוני בסיס','רטבים','תוספות','סלטים','מרקים','משקאות'];
+const CATS=['עיקריות','פסטה','מתוקים','מאפים ולחמים','מתכוני בסיס','רטבים','תוספות','סלטים','מרקים','משקאות'];
 let E={},ADDED=[],OK=new Set();
 try{E=JSON.parse(localStorage.getItem('ed_e')||'{}');ADDED=JSON.parse(localStorage.getItem('ed_a')||'[]');OK=new Set(JSON.parse(localStorage.getItem('ed_ok')||'[]'))}catch(e){}
 const save=()=>{try{localStorage.setItem('ed_e',JSON.stringify(E));localStorage.setItem('ed_a',JSON.stringify(ADDED));localStorage.setItem('ed_ok',JSON.stringify([...OK]))}catch(e){}};
